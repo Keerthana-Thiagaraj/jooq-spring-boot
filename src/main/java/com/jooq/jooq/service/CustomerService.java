@@ -1,23 +1,43 @@
 package com.jooq.jooq.service;
 
-import com.jooq.jooq.model.Tables;
-import com.jooq.jooq.model.tables.pojos.Customer;
+import java.util.List;
+
 import org.jooq.DSLContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import com.jooq.jooq.model.Tables;
+import com.jooq.jooq.model.tables.pojos.CustomerMaster;
+import com.jooq.jooq.model.tables.records.CustomerMasterRecord;
 
 @Service
 public class CustomerService {
-    @Autowired
-    DSLContext dslContext;
+	@Autowired
+	DSLContext dslContext;
 
-    public List<Customer> getCustomers() {
-        return dslContext.selectFrom(Tables.CUSTOMER).fetchInto(Customer.class);
-    }
+	public List<CustomerMaster> getCustomers() {
+		//Result<Record> result = dslContext.fetch("SELECT * FROM customer_master WHERE CUSTOMER_CODE='"+1000008+"'");
+	  return
+		  dslContext.selectFrom(Tables.CUSTOMER_MASTER).where(Tables.CUSTOMER_MASTER.
+		  CUSTOMER_CODE.eq("1000008")) .fetchInto(CustomerMaster.class);
+		 
+	}
 
-    public void addCustomer(Customer customer) {
-        dslContext.insertInto(Tables.CUSTOMER, Tables.CUSTOMER.NAME, Tables.CUSTOMER.AGE).values(customer.getName(), customer.getAge()).execute();
-    }
+	public void addCustomer(CustomerMaster customer) {
+		
+		// When you produce results
+		/*int rows = dslContext.connectionResult(c -> {
+		    try (Statement s = c.createStatement()) {
+		        return s.executeUpdate("INSERT INTO author (id, first_name, last_name) VALUES (3, 'William', 'Shakespeare')");
+		    }
+		});*/
+		
+		//dslContext.batchStore(customer);
+		//dslContext.insertInto(Tables.CUSTOMER_MASTER, Tables.CUSTOMER_MASTER.COMP_CODE, Tables.CUSTOMER_MASTER.CUSTOMER_CODE, Tables.CUSTOMER_MASTER.CUSTOMER_ACC_GRP_CODE, Tables.CUSTOMER_MASTER.CUSTOMER_GRP_CODE, Tables.CUSTOMER_MASTER.NAME)
+		//		.values(customer.getCompCode(), customer.getCustomerCode(),customer.getCustomerAccGrpCode(),customer.getCustomerGrpCode(),customer.getName()).execute();
+		CustomerMasterRecord customerMaster = dslContext.newRecord(Tables.CUSTOMER_MASTER, customer);
+		customerMaster.store();
+		dslContext.executeInsert(customerMaster);
+		//dslContext.executeUpdate(customerMaster);
+	}
 }

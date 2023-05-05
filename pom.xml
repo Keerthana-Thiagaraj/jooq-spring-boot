@@ -14,7 +14,7 @@
 	<name>jooq</name>
 	<description>Project using JOOQ</description>
 	<properties>
-		<java.version>8</java.version>
+		<java.version>1.8</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -46,7 +46,7 @@
 			</plugin>
 			<plugin>
 				<groupId>org.jooq</groupId>
-				<artifactId>jooq-codegen-maven</artifactId>
+  				<artifactId>jooq-codegen-maven</artifactId>
 				<executions>
 					<execution>
 						<id>generate-mysql</id>
@@ -57,34 +57,35 @@
 						<configuration>
 							<!--Insert your DB configuration-->
 							<jdbc>
-								<driver>com.mysql.cj.jdbc.Driver</driver>
+								<driver>com.mysql.jdbc.Driver</driver>
 <!--								Ensure database name is jooq!!-->
-								<url>jdbc:mysql://localhost:3306/jooq</url>
-								<user>root</user>
+								<url>jdbc:mysql://54.175.39.204:3306/vendor_portal_pbx</url>
+								<user>bpuser</user>
 <!--								insert password here-->
-								<password></password>
+								<password>Ds#Tg753</password>
 							</jdbc>
 							<generator>
 								<database>
 									<name>org.jooq.meta.mysql.MySQLDatabase</name>
 									<includes>.*</includes>
 									<excludes></excludes>
-									<inputSchema>jooq</inputSchema>
+									<inputSchema>vendor_portal_pbx</inputSchema>
 								</database>
 								<generate>
-									<pojos>true</pojos>
-									<pojosEqualsAndHashCode>
+									  <pojos>true</pojos>
+									  <pojosEqualsAndHashCode>
 										true
-									</pojosEqualsAndHashCode>
-									<javaTimeTypes>true</javaTimeTypes>
-									<fluentSetters>true</fluentSetters>
+									  </pojosEqualsAndHashCode>
+									  <javaTimeTypes>true</javaTimeTypes>
+									  <fluentSetters>true</fluentSetters>
 								</generate>
 								<target>
 									<packageName>
 										com.jooq.jooq.model
 									</packageName>
 									<directory>
-										target/generated-sources/jooq
+										src/main/java
+<!-- 										target/generated-sources/jooq -->
 									</directory>
 								</target>
 							</generator>
@@ -92,7 +93,6 @@
 					</execution>
 				</executions>
 			</plugin>
-
 		</plugins>
 	</build>
 
