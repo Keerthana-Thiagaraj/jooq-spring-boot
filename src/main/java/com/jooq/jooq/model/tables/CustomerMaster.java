@@ -4,11 +4,10 @@
 package com.jooq.jooq.model.tables;
 
 
+import com.jooq.jooq.model.JooqDemo;
 import com.jooq.jooq.model.Keys;
-import com.jooq.jooq.model.VendorPortalPbx;
 import com.jooq.jooq.model.tables.records.CustomerMasterRecord;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
@@ -36,7 +35,7 @@ public class CustomerMaster extends TableImpl<CustomerMasterRecord> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>vendor_portal_pbx.customer_master</code>
+     * The reference instance of <code>jooq_demo.customer_master</code>
      */
     public static final CustomerMaster CUSTOMER_MASTER = new CustomerMaster();
 
@@ -49,354 +48,139 @@ public class CustomerMaster extends TableImpl<CustomerMasterRecord> {
     }
 
     /**
-     * The column <code>vendor_portal_pbx.customer_master.COMP_CODE</code>.
+     * The column <code>jooq_demo.customer_master.COMP_CODE</code>.
      */
     public final TableField<CustomerMasterRecord, String> COMP_CODE = createField(DSL.name("COMP_CODE"), SQLDataType.VARCHAR(10).nullable(false), this, "");
 
     /**
-     * The column <code>vendor_portal_pbx.customer_master.CUSTOMER_CODE</code>.
+     * The column <code>jooq_demo.customer_master.CUSTOMER_CODE</code>.
      */
     public final TableField<CustomerMasterRecord, String> CUSTOMER_CODE = createField(DSL.name("CUSTOMER_CODE"), SQLDataType.VARCHAR(20).nullable(false), this, "");
 
     /**
-     * The column <code>vendor_portal_pbx.customer_master.CUSTOMER_ACC_GRP_CODE</code>.
+     * The column <code>jooq_demo.customer_master.CUSTOMER_ACC_GRP_CODE</code>.
      */
     public final TableField<CustomerMasterRecord, String> CUSTOMER_ACC_GRP_CODE = createField(DSL.name("CUSTOMER_ACC_GRP_CODE"), SQLDataType.VARCHAR(4).nullable(false), this, "");
 
     /**
-     * The column <code>vendor_portal_pbx.customer_master.CUSTOMER_GRP_CODE</code>.
+     * The column <code>jooq_demo.customer_master.CUSTOMER_GRP_CODE</code>.
      */
     public final TableField<CustomerMasterRecord, String> CUSTOMER_GRP_CODE = createField(DSL.name("CUSTOMER_GRP_CODE"), SQLDataType.VARCHAR(2).nullable(false), this, "");
 
     /**
-     * The column <code>vendor_portal_pbx.customer_master.NAME</code>.
+     * The column <code>jooq_demo.customer_master.NAME</code>.
      */
     public final TableField<CustomerMasterRecord, String> NAME = createField(DSL.name("NAME"), SQLDataType.VARCHAR(35), this, "");
 
     /**
-     * The column <code>vendor_portal_pbx.customer_master.NAME_2</code>.
+     * The column <code>jooq_demo.customer_master.NAME_2</code>.
      */
     public final TableField<CustomerMasterRecord, String> NAME_2 = createField(DSL.name("NAME_2"), SQLDataType.VARCHAR(35), this, "");
 
     /**
-     * The column <code>vendor_portal_pbx.customer_master.CITY</code>.
+     * The column <code>jooq_demo.customer_master.CITY</code>.
      */
     public final TableField<CustomerMasterRecord, String> CITY = createField(DSL.name("CITY"), SQLDataType.VARCHAR(40), this, "");
 
     /**
-     * The column <code>vendor_portal_pbx.customer_master.DISTRICT</code>.
+     * The column <code>jooq_demo.customer_master.DISTRICT</code>.
      */
     public final TableField<CustomerMasterRecord, String> DISTRICT = createField(DSL.name("DISTRICT"), SQLDataType.VARCHAR(40), this, "");
 
     /**
-     * The column <code>vendor_portal_pbx.customer_master.POSTAL_CODE</code>.
+     * The column <code>jooq_demo.customer_master.POSTAL_CODE</code>.
      */
     public final TableField<CustomerMasterRecord, String> POSTAL_CODE = createField(DSL.name("POSTAL_CODE"), SQLDataType.VARCHAR(10), this, "");
 
     /**
-     * The column <code>vendor_portal_pbx.customer_master.REGION_CODE</code>.
+     * The column <code>jooq_demo.customer_master.REGION_CODE</code>.
      */
     public final TableField<CustomerMasterRecord, String> REGION_CODE = createField(DSL.name("REGION_CODE"), SQLDataType.VARCHAR(3), this, "");
 
     /**
-     * The column <code>vendor_portal_pbx.customer_master.COUNTRY_CODE</code>.
+     * The column <code>jooq_demo.customer_master.COUNTRY_CODE</code>.
      */
     public final TableField<CustomerMasterRecord, String> COUNTRY_CODE = createField(DSL.name("COUNTRY_CODE"), SQLDataType.VARCHAR(3), this, "");
 
     /**
-     * The column <code>vendor_portal_pbx.customer_master.PAN_NO</code>.
+     * The column <code>jooq_demo.customer_master.PAN_NO</code>.
      */
     public final TableField<CustomerMasterRecord, String> PAN_NO = createField(DSL.name("PAN_NO"), SQLDataType.VARCHAR(40), this, "");
 
     /**
-     * The column <code>vendor_portal_pbx.customer_master.GSTIN</code>.
+     * The column <code>jooq_demo.customer_master.GSTIN</code>.
      */
-    public final TableField<CustomerMasterRecord, String> GSTIN = createField(DSL.name("GSTIN"), SQLDataType.VARCHAR(15), this, "");
+    public final TableField<CustomerMasterRecord, String> GSTIN = createField(DSL.name("GSTIN"), SQLDataType.VARCHAR(45), this, "");
 
     /**
-     * The column <code>vendor_portal_pbx.customer_master.TELEPHONE_NO</code>.
+     * The column <code>jooq_demo.customer_master.TELEPHONE_NO</code>.
      */
     public final TableField<CustomerMasterRecord, String> TELEPHONE_NO = createField(DSL.name("TELEPHONE_NO"), SQLDataType.VARCHAR(30), this, "");
 
     /**
-     * The column <code>vendor_portal_pbx.customer_master.DOOR_NO</code>.
+     * The column <code>jooq_demo.customer_master.DOOR_NO</code>.
      */
     public final TableField<CustomerMasterRecord, String> DOOR_NO = createField(DSL.name("DOOR_NO"), SQLDataType.VARCHAR(10), this, "");
 
     /**
-     * The column <code>vendor_portal_pbx.customer_master.STREET_NAME_1</code>.
+     * The column <code>jooq_demo.customer_master.STREET_NAME_1</code>.
      */
     public final TableField<CustomerMasterRecord, String> STREET_NAME_1 = createField(DSL.name("STREET_NAME_1"), SQLDataType.VARCHAR(60), this, "");
 
     /**
-     * The column <code>vendor_portal_pbx.customer_master.STREET_NAME_2</code>.
-     */
-    public final TableField<CustomerMasterRecord, String> STREET_NAME_2 = createField(DSL.name("STREET_NAME_2"), SQLDataType.VARCHAR(40), this, "");
-
-    /**
-     * The column <code>vendor_portal_pbx.customer_master.STREET_NAME_3</code>.
+     * The column <code>jooq_demo.customer_master.STREET_NAME_3</code>.
      */
     public final TableField<CustomerMasterRecord, String> STREET_NAME_3 = createField(DSL.name("STREET_NAME_3"), SQLDataType.VARCHAR(40), this, "");
 
     /**
-     * The column <code>vendor_portal_pbx.customer_master.LANDMARK</code>.
+     * The column <code>jooq_demo.customer_master.LANDMARK</code>.
      */
     public final TableField<CustomerMasterRecord, String> LANDMARK = createField(DSL.name("LANDMARK"), SQLDataType.VARCHAR(40), this, "");
 
     /**
-     * The column <code>vendor_portal_pbx.customer_master.MOBILE_NO_1</code>.
+     * The column <code>jooq_demo.customer_master.MOBILE_NO_1</code>.
      */
     public final TableField<CustomerMasterRecord, String> MOBILE_NO_1 = createField(DSL.name("MOBILE_NO_1"), SQLDataType.VARCHAR(15), this, "");
 
     /**
-     * The column <code>vendor_portal_pbx.customer_master.MOBILE_NO_2</code>.
+     * The column <code>jooq_demo.customer_master.MOBILE_NO_2</code>.
      */
     public final TableField<CustomerMasterRecord, String> MOBILE_NO_2 = createField(DSL.name("MOBILE_NO_2"), SQLDataType.VARCHAR(15), this, "");
 
     /**
-     * The column <code>vendor_portal_pbx.customer_master.EMAIL</code>.
+     * The column <code>jooq_demo.customer_master.EMAIL</code>.
      */
     public final TableField<CustomerMasterRecord, String> EMAIL = createField(DSL.name("EMAIL"), SQLDataType.VARCHAR(250), this, "");
 
     /**
-     * The column <code>vendor_portal_pbx.customer_master.CRATE_CAPACITY</code>.
-     */
-    public final TableField<CustomerMasterRecord, String> CRATE_CAPACITY = createField(DSL.name("CRATE_CAPACITY"), SQLDataType.VARCHAR(50), this, "");
-
-    /**
-     * The column <code>vendor_portal_pbx.customer_master.BLOCK_STATUS</code>.
-     */
-    public final TableField<CustomerMasterRecord, String> BLOCK_STATUS = createField(DSL.name("BLOCK_STATUS"), SQLDataType.VARCHAR(50), this, "");
-
-    /**
-     * The column <code>vendor_portal_pbx.customer_master.PUFF_DATE</code>.
-     */
-    public final TableField<CustomerMasterRecord, LocalDate> PUFF_DATE = createField(DSL.name("PUFF_DATE"), SQLDataType.LOCALDATE, this, "");
-
-    /**
-     * The column <code>vendor_portal_pbx.customer_master.SHOP_OPEN_DATE</code>.
-     */
-    public final TableField<CustomerMasterRecord, LocalDate> SHOP_OPEN_DATE = createField(DSL.name("SHOP_OPEN_DATE"), SQLDataType.LOCALDATE, this, "");
-
-    /**
-     * The column <code>vendor_portal_pbx.customer_master.FSSAI_NO</code>.
-     */
-    public final TableField<CustomerMasterRecord, String> FSSAI_NO = createField(DSL.name("FSSAI_NO"), SQLDataType.VARCHAR(40), this, "");
-
-    /**
-     * The column <code>vendor_portal_pbx.customer_master.FSSAI_DATE</code>.
-     */
-    public final TableField<CustomerMasterRecord, LocalDate> FSSAI_DATE = createField(DSL.name("FSSAI_DATE"), SQLDataType.LOCALDATE, this, "");
-
-    /**
-     * The column <code>vendor_portal_pbx.customer_master.VEH_STATUS</code>.
-     */
-    public final TableField<CustomerMasterRecord, String> VEH_STATUS = createField(DSL.name("VEH_STATUS"), SQLDataType.VARCHAR(1), this, "");
-
-    /**
-     * The column <code>vendor_portal_pbx.customer_master.DCO</code>.
-     */
-    public final TableField<CustomerMasterRecord, Integer> DCO = createField(DSL.name("DCO"), SQLDataType.INTEGER, this, "");
-
-    /**
-     * The column <code>vendor_portal_pbx.customer_master.DSO</code>.
-     */
-    public final TableField<CustomerMasterRecord, Integer> DSO = createField(DSL.name("DSO"), SQLDataType.INTEGER, this, "");
-
-    /**
-     * The column <code>vendor_portal_pbx.customer_master.FRANS_START_DATE</code>.
-     */
-    public final TableField<CustomerMasterRecord, LocalDate> FRANS_START_DATE = createField(DSL.name("FRANS_START_DATE"), SQLDataType.LOCALDATE, this, "");
-
-    /**
-     * The column <code>vendor_portal_pbx.customer_master.DCO_SUPPLIED</code>.
-     */
-    public final TableField<CustomerMasterRecord, Integer> DCO_SUPPLIED = createField(DSL.name("DCO_SUPPLIED"), SQLDataType.INTEGER, this, "");
-
-    /**
-     * The column <code>vendor_portal_pbx.customer_master.DSO_SUPPLIED</code>.
-     */
-    public final TableField<CustomerMasterRecord, Integer> DSO_SUPPLIED = createField(DSL.name("DSO_SUPPLIED"), SQLDataType.INTEGER, this, "");
-
-    /**
-     * The column <code>vendor_portal_pbx.customer_master.SDE</code>.
-     */
-    public final TableField<CustomerMasterRecord, Integer> SDE = createField(DSL.name("SDE"), SQLDataType.INTEGER, this, "");
-
-    /**
-     * The column <code>vendor_portal_pbx.customer_master.VENDOR_CODE</code>.
+     * The column <code>jooq_demo.customer_master.VENDOR_CODE</code>.
      */
     public final TableField<CustomerMasterRecord, String> VENDOR_CODE = createField(DSL.name("VENDOR_CODE"), SQLDataType.VARCHAR(10), this, "");
 
     /**
-     * The column <code>vendor_portal_pbx.customer_master.STATUS</code>.
+     * The column <code>jooq_demo.customer_master.STATUS</code>.
      */
     public final TableField<CustomerMasterRecord, String> STATUS = createField(DSL.name("STATUS"), SQLDataType.VARCHAR(1), this, "");
 
     /**
-     * The column <code>vendor_portal_pbx.customer_master.CREATED_BY</code>.
+     * The column <code>jooq_demo.customer_master.CREATED_BY</code>.
      */
     public final TableField<CustomerMasterRecord, Integer> CREATED_BY = createField(DSL.name("CREATED_BY"), SQLDataType.INTEGER, this, "");
 
     /**
-     * The column <code>vendor_portal_pbx.customer_master.CREATED_ON</code>.
+     * The column <code>jooq_demo.customer_master.CREATED_ON</code>.
      */
     public final TableField<CustomerMasterRecord, LocalDateTime> CREATED_ON = createField(DSL.name("CREATED_ON"), SQLDataType.LOCALDATETIME(0), this, "");
 
     /**
-     * The column <code>vendor_portal_pbx.customer_master.LAST_CHANGED_BY</code>.
+     * The column <code>jooq_demo.customer_master.LAST_CHANGED_BY</code>.
      */
     public final TableField<CustomerMasterRecord, Integer> LAST_CHANGED_BY = createField(DSL.name("LAST_CHANGED_BY"), SQLDataType.INTEGER, this, "");
 
     /**
-     * The column <code>vendor_portal_pbx.customer_master.LAST_CHANGED_ON</code>.
+     * The column <code>jooq_demo.customer_master.LAST_CHANGED_ON</code>.
      */
     public final TableField<CustomerMasterRecord, LocalDateTime> LAST_CHANGED_ON = createField(DSL.name("LAST_CHANGED_ON"), SQLDataType.LOCALDATETIME(0), this, "");
-
-    /**
-     * The column <code>vendor_portal_pbx.customer_master.CUSTOMER_COLUMN1</code>.
-     */
-    public final TableField<CustomerMasterRecord, String> CUSTOMER_COLUMN1 = createField(DSL.name("CUSTOMER_COLUMN1"), SQLDataType.VARCHAR(45), this, "");
-
-    /**
-     * The column <code>vendor_portal_pbx.customer_master.CUSTOMER_COLUMN2</code>.
-     */
-    public final TableField<CustomerMasterRecord, String> CUSTOMER_COLUMN2 = createField(DSL.name("CUSTOMER_COLUMN2"), SQLDataType.VARCHAR(45), this, "");
-
-    /**
-     * The column <code>vendor_portal_pbx.customer_master.CUSTOMER_COLUMN3</code>.
-     */
-    public final TableField<CustomerMasterRecord, String> CUSTOMER_COLUMN3 = createField(DSL.name("CUSTOMER_COLUMN3"), SQLDataType.VARCHAR(45), this, "");
-
-    /**
-     * The column <code>vendor_portal_pbx.customer_master.TRANS_POINT</code>.
-     */
-    public final TableField<CustomerMasterRecord, String> TRANS_POINT = createField(DSL.name("TRANS_POINT"), SQLDataType.VARCHAR(45), this, "");
-
-    /**
-     * The column <code>vendor_portal_pbx.customer_master.DISTANCE</code>.
-     */
-    public final TableField<CustomerMasterRecord, String> DISTANCE = createField(DSL.name("DISTANCE"), SQLDataType.VARCHAR(45), this, "");
-
-    /**
-     * The column <code>vendor_portal_pbx.customer_master.ROUTE_CODE</code>.
-     */
-    public final TableField<CustomerMasterRecord, String> ROUTE_CODE = createField(DSL.name("ROUTE_CODE"), SQLDataType.VARCHAR(45), this, "");
-
-    /**
-     * The column <code>vendor_portal_pbx.customer_master.ROUTE_NAME</code>.
-     */
-    public final TableField<CustomerMasterRecord, String> ROUTE_NAME = createField(DSL.name("ROUTE_NAME"), SQLDataType.VARCHAR(45), this, "");
-
-    /**
-     * The column <code>vendor_portal_pbx.customer_master.MODERN_AVAIL</code>.
-     */
-    public final TableField<CustomerMasterRecord, String> MODERN_AVAIL = createField(DSL.name("MODERN_AVAIL"), SQLDataType.VARCHAR(45), this, "");
-
-    /**
-     * The column <code>vendor_portal_pbx.customer_master.MODERN_SUPPLY</code>.
-     */
-    public final TableField<CustomerMasterRecord, String> MODERN_SUPPLY = createField(DSL.name("MODERN_SUPPLY"), SQLDataType.VARCHAR(45), this, "");
-
-    /**
-     * The column <code>vendor_portal_pbx.customer_master.SDE_NAME</code>.
-     */
-    public final TableField<CustomerMasterRecord, String> SDE_NAME = createField(DSL.name("SDE_NAME"), SQLDataType.VARCHAR(45), this, "");
-
-    /**
-     * The column <code>vendor_portal_pbx.customer_master.VWERK</code>.
-     */
-    public final TableField<CustomerMasterRecord, String> VWERK = createField(DSL.name("VWERK"), SQLDataType.VARCHAR(5), this, "");
-
-    /**
-     * The column <code>vendor_portal_pbx.customer_master.REPLACE_SHOPNAME</code>.
-     */
-    public final TableField<CustomerMasterRecord, String> REPLACE_SHOPNAME = createField(DSL.name("REPLACE_SHOPNAME"), SQLDataType.VARCHAR(45), this, "");
-
-    /**
-     * The column <code>vendor_portal_pbx.customer_master.REPLACE_CUSTOMER</code>.
-     */
-    public final TableField<CustomerMasterRecord, String> REPLACE_CUSTOMER = createField(DSL.name("REPLACE_CUSTOMER"), SQLDataType.VARCHAR(45), this, "");
-
-    /**
-     * The column <code>vendor_portal_pbx.customer_master.STREET_NAME4</code>.
-     */
-    public final TableField<CustomerMasterRecord, String> STREET_NAME4 = createField(DSL.name("STREET_NAME4"), SQLDataType.VARCHAR(45), this, "");
-
-    /**
-     * The column <code>vendor_portal_pbx.customer_master.DATETIME_SD</code>.
-     */
-    public final TableField<CustomerMasterRecord, LocalDateTime> DATETIME_SD = createField(DSL.name("DATETIME_SD"), SQLDataType.LOCALDATETIME(0), this, "");
-
-    /**
-     * The column <code>vendor_portal_pbx.customer_master.DATETIME_OUTSTANDING</code>.
-     */
-    public final TableField<CustomerMasterRecord, LocalDateTime> DATETIME_OUTSTANDING = createField(DSL.name("DATETIME_OUTSTANDING"), SQLDataType.LOCALDATETIME(0), this, "");
-
-    /**
-     * The column <code>vendor_portal_pbx.customer_master.SDE_EMAIL</code>.
-     */
-    public final TableField<CustomerMasterRecord, String> SDE_EMAIL = createField(DSL.name("SDE_EMAIL"), SQLDataType.VARCHAR(250), this, "");
-
-    /**
-     * The column <code>vendor_portal_pbx.customer_master.VKGRP</code>.
-     */
-    public final TableField<CustomerMasterRecord, String> VKGRP = createField(DSL.name("VKGRP"), SQLDataType.VARCHAR(45), this, "");
-
-    /**
-     * The column <code>vendor_portal_pbx.customer_master.VKGRP_TXT</code>.
-     */
-    public final TableField<CustomerMasterRecord, String> VKGRP_TXT = createField(DSL.name("VKGRP_TXT"), SQLDataType.VARCHAR(250), this, "");
-
-    /**
-     * The column <code>vendor_portal_pbx.customer_master.VKBUR</code>.
-     */
-    public final TableField<CustomerMasterRecord, String> VKBUR = createField(DSL.name("VKBUR"), SQLDataType.VARCHAR(45), this, "");
-
-    /**
-     * The column <code>vendor_portal_pbx.customer_master.VKBUR_TXT</code>.
-     */
-    public final TableField<CustomerMasterRecord, String> VKBUR_TXT = createField(DSL.name("VKBUR_TXT"), SQLDataType.VARCHAR(250), this, "");
-
-    /**
-     * The column <code>vendor_portal_pbx.customer_master.SORT2</code>.
-     */
-    public final TableField<CustomerMasterRecord, String> SORT2 = createField(DSL.name("SORT2"), SQLDataType.VARCHAR(10), this, "");
-
-    /**
-     * The column <code>vendor_portal_pbx.customer_master.VIEW_CIRCULAR_STATUS</code>.
-     */
-    public final TableField<CustomerMasterRecord, String> VIEW_CIRCULAR_STATUS = createField(DSL.name("VIEW_CIRCULAR_STATUS"), SQLDataType.VARCHAR(45), this, "");
-
-    /**
-     * The column <code>vendor_portal_pbx.customer_master.NON_CUSTOMER_DATETIME</code>.
-     */
-    public final TableField<CustomerMasterRecord, LocalDateTime> NON_CUSTOMER_DATETIME = createField(DSL.name("NON_CUSTOMER_DATETIME"), SQLDataType.LOCALDATETIME(0), this, "");
-
-    /**
-     * The column <code>vendor_portal_pbx.customer_master.DATETIME_FISCAL</code>.
-     */
-    public final TableField<CustomerMasterRecord, LocalDateTime> DATETIME_FISCAL = createField(DSL.name("DATETIME_FISCAL"), SQLDataType.LOCALDATETIME(0), this, "");
-
-    /**
-     * The column <code>vendor_portal_pbx.customer_master.BP_CUSTOMER</code>.
-     */
-    public final TableField<CustomerMasterRecord, String> BP_CUSTOMER = createField(DSL.name("BP_CUSTOMER"), SQLDataType.VARCHAR(10), this, "");
-
-    /**
-     * The column <code>vendor_portal_pbx.customer_master.BP_LIFNR</code>.
-     */
-    public final TableField<CustomerMasterRecord, String> BP_LIFNR = createField(DSL.name("BP_LIFNR"), SQLDataType.VARCHAR(10), this, "");
-
-    /**
-     * The column <code>vendor_portal_pbx.customer_master.BP_RSP</code>.
-     */
-    public final TableField<CustomerMasterRecord, String> BP_RSP = createField(DSL.name("BP_RSP"), SQLDataType.VARCHAR(30), this, "");
-
-    /**
-     * The column <code>vendor_portal_pbx.customer_master.whatsup</code>.
-     */
-    public final TableField<CustomerMasterRecord, String> WHATSUP = createField(DSL.name("whatsup"), SQLDataType.VARCHAR(1).defaultValue(DSL.inline("N", SQLDataType.VARCHAR)), this, "");
 
     private CustomerMaster(Name alias, Table<CustomerMasterRecord> aliased) {
         this(alias, aliased, null);
@@ -407,21 +191,21 @@ public class CustomerMaster extends TableImpl<CustomerMasterRecord> {
     }
 
     /**
-     * Create an aliased <code>vendor_portal_pbx.customer_master</code> table reference
+     * Create an aliased <code>jooq_demo.customer_master</code> table reference
      */
     public CustomerMaster(String alias) {
         this(DSL.name(alias), CUSTOMER_MASTER);
     }
 
     /**
-     * Create an aliased <code>vendor_portal_pbx.customer_master</code> table reference
+     * Create an aliased <code>jooq_demo.customer_master</code> table reference
      */
     public CustomerMaster(Name alias) {
         this(alias, CUSTOMER_MASTER);
     }
 
     /**
-     * Create a <code>vendor_portal_pbx.customer_master</code> table reference
+     * Create a <code>jooq_demo.customer_master</code> table reference
      */
     public CustomerMaster() {
         this(DSL.name("customer_master"), null);
@@ -433,7 +217,7 @@ public class CustomerMaster extends TableImpl<CustomerMasterRecord> {
 
     @Override
     public Schema getSchema() {
-        return VendorPortalPbx.VENDOR_PORTAL_PBX;
+        return JooqDemo.JOOQ_DEMO;
     }
 
     @Override

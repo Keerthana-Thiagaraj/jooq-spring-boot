@@ -25,9 +25,9 @@ public class DefaultCatalog extends CatalogImpl {
     public static final DefaultCatalog DEFAULT_CATALOG = new DefaultCatalog();
 
     /**
-     * The schema <code>vendor_portal_pbx</code>.
+     * The schema <code>jooq_demo</code>.
      */
-    public final VendorPortalPbx VENDOR_PORTAL_PBX = VendorPortalPbx.VENDOR_PORTAL_PBX;
+    public final JooqDemo JOOQ_DEMO = JooqDemo.JOOQ_DEMO;
 
     /**
      * No further instances allowed
@@ -39,6 +39,6 @@ public class DefaultCatalog extends CatalogImpl {
     @Override
     public final List<Schema> getSchemas() {
         return Arrays.<Schema>asList(
-            VendorPortalPbx.VENDOR_PORTAL_PBX);
+            JooqDemo.JOOQ_DEMO);
     }
 }

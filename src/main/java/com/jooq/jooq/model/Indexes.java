@@ -4,55 +4,7 @@
 package com.jooq.jooq.model;
 
 
-import com.jooq.jooq.model.tables.ApReport;
-import com.jooq.jooq.model.tables.CcmsAllowanceMaster;
-import com.jooq.jooq.model.tables.CcmsAllowanceMasterMapping;
-import com.jooq.jooq.model.tables.CcmsCanteenEntry;
-import com.jooq.jooq.model.tables.CcmsCanteenPoItem;
-import com.jooq.jooq.model.tables.CcmsEmployee;
-import com.jooq.jooq.model.tables.CcmsGateEntry;
-import com.jooq.jooq.model.tables.CcmsMealDeductionHistory;
-import com.jooq.jooq.model.tables.CcmsMspPoItem;
-import com.jooq.jooq.model.tables.CcmsPoItem;
-import com.jooq.jooq.model.tables.CcmsShiftMaster;
-import com.jooq.jooq.model.tables.CustomerBillAttachment;
-import com.jooq.jooq.model.tables.CustomerFreezerAttachment;
-import com.jooq.jooq.model.tables.CustomerFreezerAttachmentOld;
-import com.jooq.jooq.model.tables.CustomerHmbo;
-import com.jooq.jooq.model.tables.FieldForceStaff;
-import com.jooq.jooq.model.tables.HapEmployeeMaster;
-import com.jooq.jooq.model.tables.HapPoHeader;
-import com.jooq.jooq.model.tables.HapPoItem;
-import com.jooq.jooq.model.tables.HoMealConfirmation;
-import com.jooq.jooq.model.tables.LogisticTransItem;
-import com.jooq.jooq.model.tables.MilkArrear;
-import com.jooq.jooq.model.tables.MilkAvg;
-import com.jooq.jooq.model.tables.MilkDeduction;
-import com.jooq.jooq.model.tables.MilkDeductionSd;
-import com.jooq.jooq.model.tables.MilkIncentive;
-import com.jooq.jooq.model.tables.MilkPaymentHa;
-import com.jooq.jooq.model.tables.MilkRecovery;
-import com.jooq.jooq.model.tables.MilkSpoilage;
-import com.jooq.jooq.model.tables.MonthlyVehicleSummary;
-import com.jooq.jooq.model.tables.NewsLetter;
-import com.jooq.jooq.model.tables.RbBuildingMaster;
-import com.jooq.jooq.model.tables.RbFloorMaster;
-import com.jooq.jooq.model.tables.RbRoomBooking;
-import com.jooq.jooq.model.tables.RbRoomMaster;
-import com.jooq.jooq.model.tables.RetailerMaster;
-import com.jooq.jooq.model.tables.TcBuildingMaster;
-import com.jooq.jooq.model.tables.TcFloorMaster;
-import com.jooq.jooq.model.tables.TcRequestGift;
-import com.jooq.jooq.model.tables.TcRequestLi;
-import com.jooq.jooq.model.tables.TcRequestRsp;
-import com.jooq.jooq.model.tables.TcRoomBedMaster;
-import com.jooq.jooq.model.tables.TcRoomMaster;
-import com.jooq.jooq.model.tables.TcRouteMaster;
-import com.jooq.jooq.model.tables.TcTrainingMaster;
-import com.jooq.jooq.model.tables.TcTransportRate;
-import com.jooq.jooq.model.tables.TcUserTrainingCenterMaster;
-import com.jooq.jooq.model.tables.UserMaster;
-import com.jooq.jooq.model.tables.VendorVehicleDetails;
+import com.jooq.jooq.model.tables.FieldMaster;
 
 import org.jooq.Index;
 import org.jooq.OrderField;
@@ -61,7 +13,7 @@ import org.jooq.impl.Internal;
 
 
 /**
- * A class modelling indexes of tables in vendor_portal_pbx.
+ * A class modelling indexes of tables in jooq_demo.
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Indexes {
@@ -70,69 +22,5 @@ public class Indexes {
     // INDEX definitions
     // -------------------------------------------------------------------------
 
-    public static final Index CCMS_ALLOWANCE_MASTER_CC_FK_IDX = Internal.createIndex(DSL.name("cc_FK_idx"), CcmsAllowanceMaster.CCMS_ALLOWANCE_MASTER, new OrderField[] { CcmsAllowanceMaster.CCMS_ALLOWANCE_MASTER.INCENTIVE_TYPE }, false);
-    public static final Index CCMS_ALLOWANCE_MASTER_MAPPING_CC_FK_IDX = Internal.createIndex(DSL.name("cc_FK_idx"), CcmsAllowanceMasterMapping.CCMS_ALLOWANCE_MASTER_MAPPING, new OrderField[] { CcmsAllowanceMasterMapping.CCMS_ALLOWANCE_MASTER_MAPPING.ALLOWANCE_ID }, false);
-    public static final Index CUSTOMER_HMBO_CUSTOMER_CODE_INDEX = Internal.createIndex(DSL.name("CUSTOMER_CODE_INDEX"), CustomerHmbo.CUSTOMER_HMBO, new OrderField[] { CustomerHmbo.CUSTOMER_HMBO.COMP_CODE, CustomerHmbo.CUSTOMER_HMBO.CUSTOMER_CODE }, false);
-    public static final Index CCMS_CANTEEN_ENTRY_EMP_FK_IDX = Internal.createIndex(DSL.name("emp_fk_idx"), CcmsCanteenEntry.CCMS_CANTEEN_ENTRY, new OrderField[] { CcmsCanteenEntry.CCMS_CANTEEN_ENTRY.EMP_CODE }, false);
-    public static final Index MILK_DEDUCTION_FARMER_DEDU_INDEX = Internal.createIndex(DSL.name("farmer_dedu_index"), MilkDeduction.MILK_DEDUCTION, new OrderField[] { MilkDeduction.MILK_DEDUCTION.ZCC_HMB, MilkDeduction.MILK_DEDUCTION.BILL_NUM }, false);
-    public static final Index MILK_DEDUCTION_SD_FARMERDEDUCTION_INDEX = Internal.createIndex(DSL.name("farmerdeduction_index"), MilkDeductionSd.MILK_DEDUCTION_SD, new OrderField[] { MilkDeductionSd.MILK_DEDUCTION_SD.BILL_NUM, MilkDeductionSd.MILK_DEDUCTION_SD.SOCIETY }, false);
-    public static final Index CCMS_GATE_ENTRY_FK8OLWKWK90D0744HAOSPG5JHX0 = Internal.createIndex(DSL.name("FK8olwkwk90d0744haospg5jhx0"), CcmsGateEntry.CCMS_GATE_ENTRY, new OrderField[] { CcmsGateEntry.CCMS_GATE_ENTRY.EMP_CODE }, false);
-    public static final Index CCMS_MEAL_DEDUCTION_HISTORY_FK_CANTEEN_IDX = Internal.createIndex(DSL.name("FK_canteen_idx"), CcmsMealDeductionHistory.CCMS_MEAL_DEDUCTION_HISTORY, new OrderField[] { CcmsMealDeductionHistory.CCMS_MEAL_DEDUCTION_HISTORY.CANTEEN }, false);
-    public static final Index TC_TRAINING_MASTER_FK_CENTER_CODE_TM_IDX = Internal.createIndex(DSL.name("FK_CENTER_CODE_TM_idx"), TcTrainingMaster.TC_TRAINING_MASTER, new OrderField[] { TcTrainingMaster.TC_TRAINING_MASTER.TR_CENTER_CODE }, false);
-    public static final Index TC_REQUEST_GIFT_FK_GIFT_MASTER_IDX = Internal.createIndex(DSL.name("FK_GIFT_MASTER_idx"), TcRequestGift.TC_REQUEST_GIFT, new OrderField[] { TcRequestGift.TC_REQUEST_GIFT.GIFT_CODE }, false);
-    public static final Index HAP_PO_ITEM_FK_HAP_PO_HEADER_PO_ITEM_IDX = Internal.createIndex(DSL.name("fk_hap_po_header_po_item_idx"), HapPoItem.HAP_PO_ITEM, new OrderField[] { HapPoItem.HAP_PO_ITEM.COMP_CODE, HapPoItem.HAP_PO_ITEM.PO_NUMBER }, false);
-    public static final Index CCMS_CANTEEN_PO_ITEM_FK_IDX = Internal.createIndex(DSL.name("FK_idx"), CcmsCanteenPoItem.CCMS_CANTEEN_PO_ITEM, new OrderField[] { CcmsCanteenPoItem.CCMS_CANTEEN_PO_ITEM.VENDOR, CcmsCanteenPoItem.CCMS_CANTEEN_PO_ITEM.MONTH, CcmsCanteenPoItem.CCMS_CANTEEN_PO_ITEM.YEAR, CcmsCanteenPoItem.CCMS_CANTEEN_PO_ITEM.CYCLE, CcmsCanteenPoItem.CCMS_CANTEEN_PO_ITEM.PLANT, CcmsCanteenPoItem.CCMS_CANTEEN_PO_ITEM.PO_TYPE }, false);
-    public static final Index CCMS_MSP_PO_ITEM_FK_IDX = Internal.createIndex(DSL.name("FK_idx"), CcmsMspPoItem.CCMS_MSP_PO_ITEM, new OrderField[] { CcmsMspPoItem.CCMS_MSP_PO_ITEM.VENDOR, CcmsMspPoItem.CCMS_MSP_PO_ITEM.MONTH, CcmsMspPoItem.CCMS_MSP_PO_ITEM.YEAR, CcmsMspPoItem.CCMS_MSP_PO_ITEM.CYCLE }, false);
-    public static final Index CCMS_PO_ITEM_FK_IDX = Internal.createIndex(DSL.name("FK_idx"), CcmsPoItem.CCMS_PO_ITEM, new OrderField[] { CcmsPoItem.CCMS_PO_ITEM.VENDOR, CcmsPoItem.CCMS_PO_ITEM.MONTH, CcmsPoItem.CCMS_PO_ITEM.YEAR, CcmsPoItem.CCMS_PO_ITEM.EMP_TYPE, CcmsPoItem.CCMS_PO_ITEM.PLANT }, false);
-    public static final Index MILK_SPOILAGE_FK_MILK_CATEGORY_IDX = Internal.createIndex(DSL.name("FK_MILK_CATEGORY_idx"), MilkSpoilage.MILK_SPOILAGE, new OrderField[] { MilkSpoilage.MILK_SPOILAGE.MILK_CATEGORY }, false);
-    public static final Index CCMS_GATE_ENTRY_FK_PUNCH_DATE = Internal.createIndex(DSL.name("FK_PUNCH_DATE"), CcmsGateEntry.CCMS_GATE_ENTRY, new OrderField[] { CcmsGateEntry.CCMS_GATE_ENTRY.PUNCH_DATE, CcmsGateEntry.CCMS_GATE_ENTRY.PLANT_CODE }, false);
-    public static final Index RB_FLOOR_MASTER_FK_RB_FLOOR_BUILDING_IDX = Internal.createIndex(DSL.name("FK_RB_FLOOR_BUILDING_idx"), RbFloorMaster.RB_FLOOR_MASTER, new OrderField[] { RbFloorMaster.RB_FLOOR_MASTER.BUILDING_CODE, RbFloorMaster.RB_FLOOR_MASTER.RB_LOCATION_CODE }, false);
-    public static final Index RB_BUILDING_MASTER_FK_RB_LOCATION_CODE_IDX = Internal.createIndex(DSL.name("FK_RB_LOCATION_CODE_idx"), RbBuildingMaster.RB_BUILDING_MASTER, new OrderField[] { RbBuildingMaster.RB_BUILDING_MASTER.RB_LOCATION_CODE }, false);
-    public static final Index RB_ROOM_BOOKING_FK_RB_ROOM_MASTER_BOOKING_IDX = Internal.createIndex(DSL.name("FK_RB_ROOM_MASTER_BOOKING_idx"), RbRoomBooking.RB_ROOM_BOOKING, new OrderField[] { RbRoomBooking.RB_ROOM_BOOKING.BUILDING_CODE, RbRoomBooking.RB_ROOM_BOOKING.FLOOR_CODE, RbRoomBooking.RB_ROOM_BOOKING.ROOM_CODE }, false);
-    public static final Index RB_ROOM_MASTER_FK_RB_ROOM_MASTER_FLOOR_IDX = Internal.createIndex(DSL.name("FK_RB_ROOM_MASTER_FLOOR_idx"), RbRoomMaster.RB_ROOM_MASTER, new OrderField[] { RbRoomMaster.RB_ROOM_MASTER.FLOOR_CODE, RbRoomMaster.RB_ROOM_MASTER.BUILDING_CODE, RbRoomMaster.RB_ROOM_MASTER.RB_LOCATION_CODE }, false);
-    public static final Index RB_ROOM_BOOKING_FK_RB_ROOM_MASTER_IDX = Internal.createIndex(DSL.name("FK_RB_ROOM_MASTER_idx"), RbRoomBooking.RB_ROOM_BOOKING, new OrderField[] { RbRoomBooking.RB_ROOM_BOOKING.BUILDING_CODE, RbRoomBooking.RB_ROOM_BOOKING.FLOOR_CODE, RbRoomBooking.RB_ROOM_BOOKING.ROOM_CODE }, false);
-    public static final Index TC_REQUEST_LI_FK_REQUEST_ID_HA_IDX = Internal.createIndex(DSL.name("FK_REQUEST_ID_HA_idx"), TcRequestLi.TC_REQUEST_LI, new OrderField[] { TcRequestLi.TC_REQUEST_LI.REQUEST_ID }, false);
-    public static final Index TC_ROUTE_MASTER_FK_RM_CENTER_CODE_IDX = Internal.createIndex(DSL.name("FK_RM_CENTER_CODE_idx"), TcRouteMaster.TC_ROUTE_MASTER, new OrderField[] { TcRouteMaster.TC_ROUTE_MASTER.TR_CENTER_CODE }, false);
-    public static final Index TC_REQUEST_RSP_FK_RM_RSP_IDX = Internal.createIndex(DSL.name("FK_RM_RSP_idx"), TcRequestRsp.TC_REQUEST_RSP, new OrderField[] { TcRequestRsp.TC_REQUEST_RSP.STATE, TcRequestRsp.TC_REQUEST_RSP.COUNTRY }, false);
-    public static final Index RB_ROOM_BOOKING_FK_ROOM_BOOKING_IDX = Internal.createIndex(DSL.name("FK_ROOM_BOOKING_idx"), RbRoomBooking.RB_ROOM_BOOKING, new OrderField[] { RbRoomBooking.RB_ROOM_BOOKING.RB_LOCATION_CODE, RbRoomBooking.RB_ROOM_BOOKING.BUILDING_CODE, RbRoomBooking.RB_ROOM_BOOKING.FLOOR_CODE, RbRoomBooking.RB_ROOM_BOOKING.ROOM_CODE }, false);
-    public static final Index TC_ROOM_BED_MASTER_FK_ROOM_CODE_BED_IDX = Internal.createIndex(DSL.name("FK_ROOM_CODE_BED_idx"), TcRoomBedMaster.TC_ROOM_BED_MASTER, new OrderField[] { TcRoomBedMaster.TC_ROOM_BED_MASTER.ROOM_CODE, TcRoomBedMaster.TC_ROOM_BED_MASTER.FLOOR_CODE, TcRoomBedMaster.TC_ROOM_BED_MASTER.BUILDING_CODE, TcRoomBedMaster.TC_ROOM_BED_MASTER.FROM_DATE }, false);
-    public static final Index TC_TRANSPORT_RATE_FK_TR_TRAINING_CODE_IDX = Internal.createIndex(DSL.name("FK_TR_TRAINING_CODE_idx"), TcTransportRate.TC_TRANSPORT_RATE, new OrderField[] { TcTransportRate.TC_TRANSPORT_RATE.TR_CENTER_CODE }, false);
-    public static final Index TC_BUILDING_MASTER_FK_TRCODE_TR_CENTER_CODE_IDX = Internal.createIndex(DSL.name("FK_TRCODE_TR_CENTER_CODE_idx"), TcBuildingMaster.TC_BUILDING_MASTER, new OrderField[] { TcBuildingMaster.TC_BUILDING_MASTER.TR_CENTER_CODE }, false);
-    public static final Index TC_USER_TRAINING_CENTER_MASTER_FK_USER_TRAINING_CODE_IDX = Internal.createIndex(DSL.name("FK_USER_TRAINING_CODE_idx"), TcUserTrainingCenterMaster.TC_USER_TRAINING_CENTER_MASTER, new OrderField[] { TcUserTrainingCenterMaster.TC_USER_TRAINING_CENTER_MASTER.TR_CENTER_CODE }, false);
-    public static final Index CCMS_EMPLOYEE_FKBRKX9ANKH29HRVHMJ67YIEXPJ = Internal.createIndex(DSL.name("FKbrkx9ankh29hrvhmj67yiexpj"), CcmsEmployee.CCMS_EMPLOYEE, new OrderField[] { CcmsEmployee.CCMS_EMPLOYEE.CONTRACTOR_CODE, CcmsEmployee.CCMS_EMPLOYEE.EMP_CODE }, false);
-    public static final Index CCMS_SHIFT_MASTER_FKD6PTUODTD1TSH37VR4SCGL1R5 = Internal.createIndex(DSL.name("FKd6ptuodtd1tsh37vr4scgl1r5"), CcmsShiftMaster.CCMS_SHIFT_MASTER, new OrderField[] { CcmsShiftMaster.CCMS_SHIFT_MASTER.APP_TYPE }, false);
-    public static final Index CCMS_GATE_ENTRY_FKFQS3SS97XTU2JQBBWUY8OUCQY = Internal.createIndex(DSL.name("FKfqs3ss97xtu2jqbbwuy8oucqy"), CcmsGateEntry.CCMS_GATE_ENTRY, new OrderField[] { CcmsGateEntry.CCMS_GATE_ENTRY.SHIFT_ID }, false);
-    public static final Index CUSTOMER_FREEZER_ATTACHMENT_OLD_IDX_ATTACH = Internal.createIndex(DSL.name("IDX_ATTACH"), CustomerFreezerAttachmentOld.CUSTOMER_FREEZER_ATTACHMENT_OLD, new OrderField[] { CustomerFreezerAttachmentOld.CUSTOMER_FREEZER_ATTACHMENT_OLD.COMP_CODE, CustomerFreezerAttachmentOld.CUSTOMER_FREEZER_ATTACHMENT_OLD.CUSTOMER_CODE, CustomerFreezerAttachmentOld.CUSTOMER_FREEZER_ATTACHMENT_OLD.RETAILER_SFA_CODE, CustomerFreezerAttachmentOld.CUSTOMER_FREEZER_ATTACHMENT_OLD.TAG_NO, CustomerFreezerAttachmentOld.CUSTOMER_FREEZER_ATTACHMENT_OLD.ATTACHMENT_NAME, CustomerFreezerAttachmentOld.CUSTOMER_FREEZER_ATTACHMENT_OLD.FILE2_ATTACHMENT_NAME }, false);
-    public static final Index CUSTOMER_FREEZER_ATTACHMENT_IDX_ATTACHMENT = Internal.createIndex(DSL.name("IDX_ATTACHMENT"), CustomerFreezerAttachment.CUSTOMER_FREEZER_ATTACHMENT, new OrderField[] { CustomerFreezerAttachment.CUSTOMER_FREEZER_ATTACHMENT.COMP_CODE, CustomerFreezerAttachment.CUSTOMER_FREEZER_ATTACHMENT.CUSTOMER_CODE, CustomerFreezerAttachment.CUSTOMER_FREEZER_ATTACHMENT.RETAILER_SFA_CODE, CustomerFreezerAttachment.CUSTOMER_FREEZER_ATTACHMENT.TAG_NO, CustomerFreezerAttachment.CUSTOMER_FREEZER_ATTACHMENT.ATTACHMENT_NAME, CustomerFreezerAttachment.CUSTOMER_FREEZER_ATTACHMENT.FILE2_ATTACHMENT_NAME }, false);
-    public static final Index HAP_EMPLOYEE_MASTER_IDX_EMP_MASTER = Internal.createIndex(DSL.name("IDX_EMP_MASTER"), HapEmployeeMaster.HAP_EMPLOYEE_MASTER, new OrderField[] { HapEmployeeMaster.HAP_EMPLOYEE_MASTER.PLANT, HapEmployeeMaster.HAP_EMPLOYEE_MASTER.CONTRACTOR_CODE, HapEmployeeMaster.HAP_EMPLOYEE_MASTER.EMP_TYPE, HapEmployeeMaster.HAP_EMPLOYEE_MASTER.STATUS, HapEmployeeMaster.HAP_EMPLOYEE_MASTER.EMP_CODE, HapEmployeeMaster.HAP_EMPLOYEE_MASTER.GENDER }, false);
-    public static final Index MILK_ARREAR_IDX_SECONDMILKPAYARREAR = Internal.createIndex(DSL.name("idx_secondmilkpayArrear"), MilkArrear.MILK_ARREAR, new OrderField[] { MilkArrear.MILK_ARREAR.SOCIETY, MilkArrear.MILK_ARREAR.BILL_NUM }, false);
-    public static final Index MILK_DEDUCTION_IDX_SECONDMILKPAYDEDUCTION = Internal.createIndex(DSL.name("idx_secondmilkpaydeduction"), MilkDeduction.MILK_DEDUCTION, new OrderField[] { MilkDeduction.MILK_DEDUCTION.WERKS, MilkDeduction.MILK_DEDUCTION.BILL_NUM }, false);
-    public static final Index MILK_DEDUCTION_SD_IDX_SECONDMILKPAYDEDUCTIONSD = Internal.createIndex(DSL.name("idx_secondmilkpaydeductionsd"), MilkDeductionSd.MILK_DEDUCTION_SD, new OrderField[] { MilkDeductionSd.MILK_DEDUCTION_SD.WERKS, MilkDeductionSd.MILK_DEDUCTION_SD.SOCIETY, MilkDeductionSd.MILK_DEDUCTION_SD.BILL_NUM }, false);
-    public static final Index MILK_PAYMENT_HA_IDX_SECONDMILKPAYHA = Internal.createIndex(DSL.name("idx_secondmilkpayha"), MilkPaymentHa.MILK_PAYMENT_HA, new OrderField[] { MilkPaymentHa.MILK_PAYMENT_HA.SOCIETY, MilkPaymentHa.MILK_PAYMENT_HA.FARMER }, false);
-    public static final Index MILK_INCENTIVE_IDX_SECONDMILKPAYINCENTIVE = Internal.createIndex(DSL.name("idx_secondmilkpayincentive"), MilkIncentive.MILK_INCENTIVE, new OrderField[] { MilkIncentive.MILK_INCENTIVE.WERKS, MilkIncentive.MILK_INCENTIVE.SOCIETY, MilkIncentive.MILK_INCENTIVE.PARTNER, MilkIncentive.MILK_INCENTIVE.BILL_NUM, MilkIncentive.MILK_INCENTIVE.CRDAT, MilkIncentive.MILK_INCENTIVE.SHIFT }, false);
-    public static final Index FIELD_FORCE_STAFF_IDX_VENDOR = Internal.createIndex(DSL.name("IDX_VENDOR"), FieldForceStaff.FIELD_FORCE_STAFF, new OrderField[] { FieldForceStaff.FIELD_FORCE_STAFF.PLANT_CODE, FieldForceStaff.FIELD_FORCE_STAFF.HMB, FieldForceStaff.FIELD_FORCE_STAFF.VENDOR }, false);
-    public static final Index HO_MEAL_CONFIRMATION_INDX_REPORT = Internal.createIndex(DSL.name("indx_report"), HoMealConfirmation.HO_MEAL_CONFIRMATION, new OrderField[] { HoMealConfirmation.HO_MEAL_CONFIRMATION.MEAL_DATE, HoMealConfirmation.HO_MEAL_CONFIRMATION.PLANT_CODE, HoMealConfirmation.HO_MEAL_CONFIRMATION.MEAL_TYPE_ID, HoMealConfirmation.HO_MEAL_CONFIRMATION.EMP_CODE }, false);
-    public static final Index NEWS_LETTER_NEWSLETTER_INDIVIDUAL = Internal.createIndex(DSL.name("NEWSlETTER_INDIVIDUAL"), NewsLetter.NEWS_LETTER, new OrderField[] { NewsLetter.NEWS_LETTER.COUNTRY_CODE, NewsLetter.NEWS_LETTER.REGION_CODE, NewsLetter.NEWS_LETTER.TYPE_ID, NewsLetter.NEWS_LETTER.UPLOAD_TYPE_ID, NewsLetter.NEWS_LETTER.SERIAL_NO, NewsLetter.NEWS_LETTER.STATUS }, false);
-    public static final Index RB_BUILDING_MASTER_PK_INDEXES = Internal.createIndex(DSL.name("PK_INDEXES"), RbBuildingMaster.RB_BUILDING_MASTER, new OrderField[] { RbBuildingMaster.RB_BUILDING_MASTER.RB_LOCATION_CODE, RbBuildingMaster.RB_BUILDING_MASTER.BUILDING_CODE, RbBuildingMaster.RB_BUILDING_MASTER.BUILDING_NAME }, false);
-    public static final Index RB_FLOOR_MASTER_PK_INDEXES = Internal.createIndex(DSL.name("PK_INDEXES"), RbFloorMaster.RB_FLOOR_MASTER, new OrderField[] { RbFloorMaster.RB_FLOOR_MASTER.FLOOR_CODE, RbFloorMaster.RB_FLOOR_MASTER.BUILDING_CODE, RbFloorMaster.RB_FLOOR_MASTER.FLOOR_NAME }, false);
-    public static final Index TC_BUILDING_MASTER_PK_INDEXES = Internal.createIndex(DSL.name("PK_INDEXES"), TcBuildingMaster.TC_BUILDING_MASTER, new OrderField[] { TcBuildingMaster.TC_BUILDING_MASTER.TR_CENTER_CODE, TcBuildingMaster.TC_BUILDING_MASTER.BUILDING_CODE, TcBuildingMaster.TC_BUILDING_MASTER.FROM_DATE, TcBuildingMaster.TC_BUILDING_MASTER.BUILDING_NAME }, false);
-    public static final Index TC_FLOOR_MASTER_PK_INDEXES = Internal.createIndex(DSL.name("PK_INDEXES"), TcFloorMaster.TC_FLOOR_MASTER, new OrderField[] { TcFloorMaster.TC_FLOOR_MASTER.FLOOR_CODE, TcFloorMaster.TC_FLOOR_MASTER.BUILDING_CODE, TcFloorMaster.TC_FLOOR_MASTER.FROM_DATE, TcFloorMaster.TC_FLOOR_MASTER.FLOOR_NAME }, false);
-    public static final Index HAP_PO_HEADER_PO_DATE = Internal.createIndex(DSL.name("PO_DATE"), HapPoHeader.HAP_PO_HEADER, new OrderField[] { HapPoHeader.HAP_PO_HEADER.COMP_CODE, HapPoHeader.HAP_PO_HEADER.PO_CREATED_ON }, false);
-    public static final Index LOGISTIC_TRANS_ITEM_SECONDAR_INDEX = Internal.createIndex(DSL.name("SECONDAR_INDEX"), LogisticTransItem.LOGISTIC_TRANS_ITEM, new OrderField[] { LogisticTransItem.LOGISTIC_TRANS_ITEM.COMP_CODE, LogisticTransItem.LOGISTIC_TRANS_ITEM.TRANSPORTER, LogisticTransItem.LOGISTIC_TRANS_ITEM.CRDAT }, false);
-    public static final Index CUSTOMER_BILL_ATTACHMENT_SECONDARY = Internal.createIndex(DSL.name("SECONDARY"), CustomerBillAttachment.CUSTOMER_BILL_ATTACHMENT, new OrderField[] { CustomerBillAttachment.CUSTOMER_BILL_ATTACHMENT.COMP_CODE, CustomerBillAttachment.CUSTOMER_BILL_ATTACHMENT.STATUS, CustomerBillAttachment.CUSTOMER_BILL_ATTACHMENT.ATTACHED_DATETIME }, false);
-    public static final Index HAP_PO_HEADER_SECONDARY = Internal.createIndex(DSL.name("SECONDARY"), HapPoHeader.HAP_PO_HEADER, new OrderField[] { HapPoHeader.HAP_PO_HEADER.COMP_CODE, HapPoHeader.HAP_PO_HEADER.VENDOR_CODE }, false);
-    public static final Index RETAILER_MASTER_SECONDARY = Internal.createIndex(DSL.name("secondary"), RetailerMaster.RETAILER_MASTER, new OrderField[] { RetailerMaster.RETAILER_MASTER.CUSTOMER_CODE }, false);
-    public static final Index AP_REPORT_SECONDARY_INDEX = Internal.createIndex(DSL.name("SECONDARY_INDEX"), ApReport.AP_REPORT, new OrderField[] { ApReport.AP_REPORT.COMP_CODE, ApReport.AP_REPORT.VENDOR_CODE, ApReport.AP_REPORT.ITEM_TYPE, ApReport.AP_REPORT.SP_GL_IND }, false);
-    public static final Index MILK_AVG_SECONDARY_INDEX = Internal.createIndex(DSL.name("SECONDARY_INDEX"), MilkAvg.MILK_AVG, new OrderField[] { MilkAvg.MILK_AVG.SOCIETY, MilkAvg.MILK_AVG.CRDAT }, false);
-    public static final Index MILK_RECOVERY_SECONDARY_INDEX = Internal.createIndex(DSL.name("SECONDARY_INDEX"), MilkRecovery.MILK_RECOVERY, new OrderField[] { MilkRecovery.MILK_RECOVERY.BILL_NUM, MilkRecovery.MILK_RECOVERY.SOCIETY }, false);
-    public static final Index MONTHLY_VEHICLE_SUMMARY_SECONDARY_INDEX = Internal.createIndex(DSL.name("SECONDARY_INDEX"), MonthlyVehicleSummary.MONTHLY_VEHICLE_SUMMARY, new OrderField[] { MonthlyVehicleSummary.MONTHLY_VEHICLE_SUMMARY.PAYMENT_VENDOR, MonthlyVehicleSummary.MONTHLY_VEHICLE_SUMMARY.SHIP_COMPLETION_DATE }, false);
-    public static final Index TC_TRAINING_MASTER_SECONDARY_INDEX = Internal.createIndex(DSL.name("SECONDARY_INDEX"), TcTrainingMaster.TC_TRAINING_MASTER, new OrderField[] { TcTrainingMaster.TC_TRAINING_MASTER.TRIANING_NAME, TcTrainingMaster.TC_TRAINING_MASTER.DEPT_CODE, TcTrainingMaster.TC_TRAINING_MASTER.FROM_DATE, TcTrainingMaster.TC_TRAINING_MASTER.TO_DATE }, false);
-    public static final Index VENDOR_VEHICLE_DETAILS_SECONDARY_INDEX = Internal.createIndex(DSL.name("SECONDARY_INDEX"), VendorVehicleDetails.VENDOR_VEHICLE_DETAILS, new OrderField[] { VendorVehicleDetails.VENDOR_VEHICLE_DETAILS.COMP_CODE, VendorVehicleDetails.VENDOR_VEHICLE_DETAILS.PAYMENT_VENDOR }, false);
-    public static final Index RB_ROOM_MASTER_SECONDARY_INDEXES = Internal.createIndex(DSL.name("SECONDARY_INDEXES"), RbRoomMaster.RB_ROOM_MASTER, new OrderField[] { RbRoomMaster.RB_ROOM_MASTER.ROOM_CODE, RbRoomMaster.RB_ROOM_MASTER.FLOOR_CODE, RbRoomMaster.RB_ROOM_MASTER.BUILDING_CODE, RbRoomMaster.RB_ROOM_MASTER.ROOM_NAME }, false);
-    public static final Index TC_ROOM_MASTER_SECONDARY_INDEXES = Internal.createIndex(DSL.name("SECONDARY_INDEXES"), TcRoomMaster.TC_ROOM_MASTER, new OrderField[] { TcRoomMaster.TC_ROOM_MASTER.ROOM_CODE, TcRoomMaster.TC_ROOM_MASTER.FLOOR_CODE, TcRoomMaster.TC_ROOM_MASTER.BUILDING_CODE, TcRoomMaster.TC_ROOM_MASTER.ROOM_NAME, TcRoomMaster.TC_ROOM_MASTER.ROOM_TYPE_CODE, TcRoomMaster.TC_ROOM_MASTER.BED_TYPE_CODE, TcRoomMaster.TC_ROOM_MASTER.FROM_DATE, TcRoomMaster.TC_ROOM_MASTER.TO_DATE }, false);
-    public static final Index MILK_PAYMENT_HA_SECONDARY_MILK_DEDUCTION = Internal.createIndex(DSL.name("SECONDARY_MILK_DEDUCTION"), MilkPaymentHa.MILK_PAYMENT_HA, new OrderField[] { MilkPaymentHa.MILK_PAYMENT_HA.SOCIETY, MilkPaymentHa.MILK_PAYMENT_HA.DATE_FRM, MilkPaymentHa.MILK_PAYMENT_HA.DATE_TO }, false);
-    public static final Index MILK_PAYMENT_HA_SECONDARY_MILKPAYMENTHA = Internal.createIndex(DSL.name("SECONDARY_MILKPAYMENTHA"), MilkPaymentHa.MILK_PAYMENT_HA, new OrderField[] { MilkPaymentHa.MILK_PAYMENT_HA.COMP_CODE, MilkPaymentHa.MILK_PAYMENT_HA.SOCIETY, MilkPaymentHa.MILK_PAYMENT_HA.FARMER, MilkPaymentHa.MILK_PAYMENT_HA.DATE_FRM, MilkPaymentHa.MILK_PAYMENT_HA.DATE_TO }, false);
-    public static final Index NEWS_LETTER_SECONDARY_NEWS_LIST = Internal.createIndex(DSL.name("SECONDARY_NEWS_LIST"), NewsLetter.NEWS_LETTER, new OrderField[] { NewsLetter.NEWS_LETTER.COUNTRY_CODE, NewsLetter.NEWS_LETTER.REGION_CODE, NewsLetter.NEWS_LETTER.TYPE_ID, NewsLetter.NEWS_LETTER.UPLOAD_TYPE_ID, NewsLetter.NEWS_LETTER.STATUS }, false);
-    public static final Index CCMS_CANTEEN_ENTRY_SHIFT_FK_IDX = Internal.createIndex(DSL.name("shift_fk_idx"), CcmsCanteenEntry.CCMS_CANTEEN_ENTRY, new OrderField[] { CcmsCanteenEntry.CCMS_CANTEEN_ENTRY.SHIFT_ID }, false);
-    public static final Index USER_MASTER_USERID_SECONDARY_INDEX = Internal.createIndex(DSL.name("USERID_SECONDARY_INDEX"), UserMaster.USER_MASTER, new OrderField[] { UserMaster.USER_MASTER.USER_ID }, false);
+    public static final Index FIELD_MASTER_FK_TAB_MASTER_IDX = Internal.createIndex(DSL.name("fk_tab_master_idx"), FieldMaster.FIELD_MASTER, new OrderField[] { FieldMaster.FIELD_MASTER.TAB_ID }, false);
 }
