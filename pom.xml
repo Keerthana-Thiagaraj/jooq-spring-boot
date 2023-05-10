@@ -36,6 +36,9 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		
+		
+		
 	</dependencies>
 
 	<build>
@@ -59,17 +62,17 @@
 							<jdbc>
 								<driver>com.mysql.jdbc.Driver</driver>
 <!--								Ensure database name is jooq!!-->
-								<url>jdbc:mysql://54.175.39.204:3306/vendor_portal_pbx</url>
-								<user>bpuser</user>
+								<url>jdbc:mysql://54.175.39.204:3306/jooq_demo</url>
+								<user>sportsuser</user>
 <!--								insert password here-->
-								<password>Ds#Tg753</password>
+								<password>ClsS@12345</password>
 							</jdbc>
 							<generator>
 								<database>
 									<name>org.jooq.meta.mysql.MySQLDatabase</name>
 									<includes>.*</includes>
 									<excludes></excludes>
-									<inputSchema>vendor_portal_pbx</inputSchema>
+									<inputSchema>jooq_demo</inputSchema>
 								</database>
 								<generate>
 									  <pojos>true</pojos>
