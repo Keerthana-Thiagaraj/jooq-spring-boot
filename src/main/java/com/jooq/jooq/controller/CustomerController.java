@@ -59,8 +59,8 @@ public class CustomerController {
 	
 	
 	@GetMapping(value = "/getFiledMasterByTabId")
-	public List<FieldMasterResponseModel> getFiledMasterByTabId(){
-		return customerService.getFiledMasterByTabId();
+	public List<FieldMasterResponseModel> getFiledMasterByTabId(Integer tabId){
+		return customerService.getFiledMasterByTabId(tabId);
 	}
 	
 }

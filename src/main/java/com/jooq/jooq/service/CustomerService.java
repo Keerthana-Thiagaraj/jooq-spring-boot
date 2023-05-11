@@ -62,13 +62,13 @@ public class CustomerService {
 		return result;
 	}
 	
-public List<FieldMasterResponseModel> getFiledMasterByTabId() {
+public List<FieldMasterResponseModel> getFiledMasterByTabId(Integer tabId) {
 		
 		List<FieldMasterResponseModel> result =  dslContext.select(Tables.FIELD_MASTER.SNO,Tables.FIELD_MASTER.FORM_FIELD_ID,Tables.FIELD_MASTER.FORM_FIELD_LABLE, Tables.FIELD_MASTER.TAB_ID, Tables.FIELD_TAB_MASTER.TAB_LABLE, Tables.FIELD_TAB_MASTER.TAB_NAME)
                 .from(Tables.FIELD_MASTER)
                 .join(Tables.FIELD_TAB_MASTER)
                 .on(Tables.FIELD_MASTER.TAB_ID.eq(Tables.FIELD_TAB_MASTER.TAB_ID))
-                .where(Tables.FIELD_TAB_MASTER.TAB_ID.eq(1)).fetchInto(FieldMasterResponseModel.class);
+                .where(Tables.FIELD_TAB_MASTER.TAB_ID.eq(tabId)).fetchInto(FieldMasterResponseModel.class);
 		return result;
 	}
 	
