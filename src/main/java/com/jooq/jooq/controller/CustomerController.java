@@ -48,7 +48,7 @@ public class CustomerController {
 	}
 	
 	@GetMapping(value = "/getFiledMaster")
-	public List<FieldMaster> getfiled(){
+	public List<Object[]> getfiled(){
 		return customerService.getFiledMasters();
 	}
 
