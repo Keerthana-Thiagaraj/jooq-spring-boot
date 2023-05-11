@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.jooq.jooq.message.ResponseMessage;
 import com.jooq.jooq.model.tables.daos.CustomerMasterDao;
 import com.jooq.jooq.model.tables.pojos.CustomerMaster;
-import com.jooq.jooq.model.tables.pojos.FieldMaster;
 import com.jooq.jooq.model.tables.pojos.FieldTabMaster;
+import com.jooq.jooq.reponse.model.FieldMasterResponseModel;
 import com.jooq.jooq.service.CustomerService;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -57,5 +57,10 @@ public class CustomerController {
 		return customerService.getTabField();
 	}
 	
+	
+	@GetMapping(value = "/getFiledMasterByTabId")
+	public List<FieldMasterResponseModel> getFiledMasterByTabId(){
+		return customerService.getFiledMasterByTabId();
+	}
 	
 }

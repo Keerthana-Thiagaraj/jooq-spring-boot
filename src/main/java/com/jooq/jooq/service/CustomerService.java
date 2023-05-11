@@ -10,6 +10,7 @@ import com.jooq.jooq.model.Tables;
 import com.jooq.jooq.model.tables.pojos.CustomerMaster;
 import com.jooq.jooq.model.tables.pojos.FieldTabMaster;
 import com.jooq.jooq.model.tables.records.CustomerMasterRecord;
+import com.jooq.jooq.reponse.model.FieldMasterResponseModel;
 
 @Service
 public class CustomerService {
@@ -48,19 +49,28 @@ public class CustomerService {
 		dslContext.executeDelete(customerMaster1);
 	}
 	
-	public List<Object[]> getFiledMasters() {
+	public List<FieldMasterResponseModel> getFiledMasterByTabId() {
 		
-		List<Object[]> result =  dslContext.select(Tables.FIELD_MASTER.SNO,Tables.FIELD_MASTER.RPMV,Tables.FIELD_MASTER.FORM_FIELD_ID,Tables.FIELD_MASTER.FORM_FIELD_LABLE, Tables.FIELD_MASTER.TAB_ID, Tables.FIELD_TAB_MASTER.TAB_LABLE, Tables.FIELD_TAB_MASTER.TAB_NAME)
+		List<FieldMasterResponseModel> result =  dslContext.select(Tables.FIELD_MASTER.SNO,Tables.FIELD_MASTER.RPMV,Tables.FIELD_MASTER.FORM_FIELD_ID,Tables.FIELD_MASTER.FORM_FIELD_LABLE, Tables.FIELD_MASTER.TAB_ID, Tables.FIELD_TAB_MASTER.TAB_LABLE, Tables.FIELD_TAB_MASTER.TAB_NAME)
                 .from(Tables.FIELD_MASTER)
                 .join(Tables.FIELD_TAB_MASTER)
                 .on(Tables.FIELD_MASTER.TAB_ID.eq(Tables.FIELD_TAB_MASTER.TAB_ID))
-                .where(Tables.FIELD_TAB_MASTER.TAB_ID.eq(1)).fetchInto(Object[].class);
+                .where(Tables.FIELD_TAB_MASTER.TAB_ID.eq(1)).fetchInto(FieldMasterResponseModel.class);
 		return result;
 	}
 
 
 	public List<FieldTabMaster> getTabField() {
 		return dslContext.selectFrom(Tables.FIELD_TAB_MASTER).fetchInto(FieldTabMaster.class);
+	}
+
+	public List<Object[]> getFiledMasters() {
+		List<Object[]> result =  dslContext.select(Tables.FIELD_MASTER.SNO,Tables.FIELD_MASTER.RPMV,Tables.FIELD_MASTER.FORM_FIELD_ID,Tables.FIELD_MASTER.FORM_FIELD_LABLE, Tables.FIELD_MASTER.TAB_ID, Tables.FIELD_TAB_MASTER.TAB_LABLE, Tables.FIELD_TAB_MASTER.TAB_NAME)
+                .from(Tables.FIELD_MASTER)
+                .join(Tables.FIELD_TAB_MASTER)
+                .on(Tables.FIELD_MASTER.TAB_ID.eq(Tables.FIELD_TAB_MASTER.TAB_ID))
+                .where(Tables.FIELD_TAB_MASTER.TAB_ID.eq(1)).fetchInto(Object[].class);
+		return result;
 	}
 	
 }
