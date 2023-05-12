@@ -127,14 +127,12 @@
 									  <fluentSetters>true</fluentSetters> -->
 									  
 									  <deprecated>false</deprecated>
-                        <relations>true</relations>
                         <generatedAnnotation>false</generatedAnnotation>
                         <instanceFields>true</instanceFields>
                         <records>true</records>
                         <interfaces>false</interfaces>
                         <pojos>true</pojos>
                         <immutablePojos>false</immutablePojos>
-                        <daos>true</daos>
                         <jpaAnnotations>true</jpaAnnotations>
                         <springAnnotations>true</springAnnotations>
                         <validationAnnotations>true</validationAnnotations>
@@ -142,6 +140,8 @@
                         <fluentSetters>true</fluentSetters>
                         <pojosEqualsAndHashCode>true</pojosEqualsAndHashCode>
                         <globalUDTReferences>true</globalUDTReferences>
+                        <daos>true</daos>
+                        <relations>true</relations>
 								</generate>
 								<target>
 									<packageName>

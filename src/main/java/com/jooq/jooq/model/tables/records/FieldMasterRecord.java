@@ -18,8 +18,8 @@ import javax.validation.constraints.Size;
 
 import org.jooq.Field;
 import org.jooq.Record1;
-import org.jooq.Record8;
-import org.jooq.Row8;
+import org.jooq.Record10;
+import org.jooq.Row10;
 import org.jooq.impl.UpdatableRecordImpl;
 
 
@@ -38,7 +38,7 @@ import org.jooq.impl.UpdatableRecordImpl;
         @Index(name = "fk_tab_master_idx", columnList = "tab_id ASC")
     }
 )
-public class FieldMasterRecord extends UpdatableRecordImpl<FieldMasterRecord> implements Record8<Integer, Integer, String, String, String, String, String, String> {
+public class FieldMasterRecord extends UpdatableRecordImpl<FieldMasterRecord> implements Record10<Integer, Integer, String, String, String, String, String, String, String, String> {
 
     private static final long serialVersionUID = 1L;
 
@@ -178,6 +178,40 @@ public class FieldMasterRecord extends UpdatableRecordImpl<FieldMasterRecord> im
         return (String) get(7);
     }
 
+    /**
+     * Setter for <code>jooq_demo.Field_master.field_type</code>.
+     */
+    public FieldMasterRecord setFieldType(String value) {
+        set(8, value);
+        return this;
+    }
+
+    /**
+     * Getter for <code>jooq_demo.Field_master.field_type</code>.
+     */
+    @Column(name = "field_type", length = 45)
+    @Size(max = 45)
+    public String getFieldType() {
+        return (String) get(8);
+    }
+
+    /**
+     * Setter for <code>jooq_demo.Field_master.field_value</code>.
+     */
+    public FieldMasterRecord setFieldValue(String value) {
+        set(9, value);
+        return this;
+    }
+
+    /**
+     * Getter for <code>jooq_demo.Field_master.field_value</code>.
+     */
+    @Column(name = "field_value", length = 45)
+    @Size(max = 45)
+    public String getFieldValue() {
+        return (String) get(9);
+    }
+
     // -------------------------------------------------------------------------
     // Primary key information
     // -------------------------------------------------------------------------
@@ -188,17 +222,17 @@ public class FieldMasterRecord extends UpdatableRecordImpl<FieldMasterRecord> im
     }
 
     // -------------------------------------------------------------------------
-    // Record8 type implementation
+    // Record10 type implementation
     // -------------------------------------------------------------------------
 
     @Override
-    public Row8<Integer, Integer, String, String, String, String, String, String> fieldsRow() {
-        return (Row8) super.fieldsRow();
+    public Row10<Integer, Integer, String, String, String, String, String, String, String, String> fieldsRow() {
+        return (Row10) super.fieldsRow();
     }
 
     @Override
-    public Row8<Integer, Integer, String, String, String, String, String, String> valuesRow() {
-        return (Row8) super.valuesRow();
+    public Row10<Integer, Integer, String, String, String, String, String, String, String, String> valuesRow() {
+        return (Row10) super.valuesRow();
     }
 
     @Override
@@ -242,6 +276,16 @@ public class FieldMasterRecord extends UpdatableRecordImpl<FieldMasterRecord> im
     }
 
     @Override
+    public Field<String> field9() {
+        return FieldMaster.FIELD_MASTER.FIELD_TYPE;
+    }
+
+    @Override
+    public Field<String> field10() {
+        return FieldMaster.FIELD_MASTER.FIELD_VALUE;
+    }
+
+    @Override
     public Integer component1() {
         return getSno();
     }
@@ -282,6 +326,16 @@ public class FieldMasterRecord extends UpdatableRecordImpl<FieldMasterRecord> im
     }
 
     @Override
+    public String component9() {
+        return getFieldType();
+    }
+
+    @Override
+    public String component10() {
+        return getFieldValue();
+    }
+
+    @Override
     public Integer value1() {
         return getSno();
     }
@@ -319,6 +373,16 @@ public class FieldMasterRecord extends UpdatableRecordImpl<FieldMasterRecord> im
     @Override
     public String value8() {
         return getStatus();
+    }
+
+    @Override
+    public String value9() {
+        return getFieldType();
+    }
+
+    @Override
+    public String value10() {
+        return getFieldValue();
     }
 
     @Override
@@ -370,7 +434,19 @@ public class FieldMasterRecord extends UpdatableRecordImpl<FieldMasterRecord> im
     }
 
     @Override
-    public FieldMasterRecord values(Integer value1, Integer value2, String value3, String value4, String value5, String value6, String value7, String value8) {
+    public FieldMasterRecord value9(String value) {
+        setFieldType(value);
+        return this;
+    }
+
+    @Override
+    public FieldMasterRecord value10(String value) {
+        setFieldValue(value);
+        return this;
+    }
+
+    @Override
+    public FieldMasterRecord values(Integer value1, Integer value2, String value3, String value4, String value5, String value6, String value7, String value8, String value9, String value10) {
         value1(value1);
         value2(value2);
         value3(value3);
@@ -379,6 +455,8 @@ public class FieldMasterRecord extends UpdatableRecordImpl<FieldMasterRecord> im
         value6(value6);
         value7(value7);
         value8(value8);
+        value9(value9);
+        value10(value10);
         return this;
     }
 
@@ -396,7 +474,7 @@ public class FieldMasterRecord extends UpdatableRecordImpl<FieldMasterRecord> im
     /**
      * Create a detached, initialised FieldMasterRecord
      */
-    public FieldMasterRecord(Integer sno, Integer tabId, String formFieldLable, String formFieldId, String rpmv, String frmr, String atpy, String status) {
+    public FieldMasterRecord(Integer sno, Integer tabId, String formFieldLable, String formFieldId, String rpmv, String frmr, String atpy, String status, String fieldType, String fieldValue) {
         super(FieldMaster.FIELD_MASTER);
 
         setSno(sno);
@@ -407,5 +485,7 @@ public class FieldMasterRecord extends UpdatableRecordImpl<FieldMasterRecord> im
         setFrmr(frmr);
         setAtpy(atpy);
         setStatus(status);
+        setFieldType(fieldType);
+        setFieldValue(fieldValue);
     }
 }

@@ -18,7 +18,7 @@ import org.jooq.Identity;
 import org.jooq.Index;
 import org.jooq.Name;
 import org.jooq.Record;
-import org.jooq.Row8;
+import org.jooq.Row10;
 import org.jooq.Schema;
 import org.jooq.Table;
 import org.jooq.TableField;
@@ -89,6 +89,16 @@ public class FieldMaster extends TableImpl<FieldMasterRecord> {
      * The column <code>jooq_demo.Field_master.status</code>.
      */
     public final TableField<FieldMasterRecord, String> STATUS = createField(DSL.name("status"), SQLDataType.VARCHAR(45), this, "");
+
+    /**
+     * The column <code>jooq_demo.Field_master.field_type</code>.
+     */
+    public final TableField<FieldMasterRecord, String> FIELD_TYPE = createField(DSL.name("field_type"), SQLDataType.VARCHAR(45), this, "");
+
+    /**
+     * The column <code>jooq_demo.Field_master.field_value</code>.
+     */
+    public final TableField<FieldMasterRecord, String> FIELD_VALUE = createField(DSL.name("field_value"), SQLDataType.VARCHAR(45), this, "");
 
     private FieldMaster(Name alias, Table<FieldMasterRecord> aliased) {
         this(alias, aliased, null);
@@ -189,11 +199,11 @@ public class FieldMaster extends TableImpl<FieldMasterRecord> {
     }
 
     // -------------------------------------------------------------------------
-    // Row8 type methods
+    // Row10 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row8<Integer, Integer, String, String, String, String, String, String> fieldsRow() {
-        return (Row8) super.fieldsRow();
+    public Row10<Integer, Integer, String, String, String, String, String, String, String, String> fieldsRow() {
+        return (Row10) super.fieldsRow();
     }
 }

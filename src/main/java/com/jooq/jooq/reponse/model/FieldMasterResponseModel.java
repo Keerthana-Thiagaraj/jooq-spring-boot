@@ -1,75 +1,40 @@
 package com.jooq.jooq.reponse.model;
 
+import java.util.List;
+
 public class FieldMasterResponseModel {
-//	"tabId": 1,
-//    "tabLable": "General Data",
-//    "tabName": "generalData",
-//    "status": "A"
-	private int sno;
-	private String fieldid;
-	private String filedlabel;
-	private int tabid;
-	private String tablabel;
-	private String tabname;
 
-
-	public FieldMasterResponseModel(int sno, String fieldid, String filedlabel, int tabid, String tablabel,
-			String tabname) {
+	private Integer tadId;
+	private String tabLabel;
+	private List<TabForm> forms;
+	public Integer getTadId() {
+		return tadId;
+	}
+	public void setTadId(Integer tadId) {
+		this.tadId = tadId;
+	}
+	public String getTabLabel() {
+		return tabLabel;
+	}
+	public void setTabLabel(String tabLabel) {
+		this.tabLabel = tabLabel;
+	}
+	public List<TabForm> getForms() {
+		return forms;
+	}
+	public void setForms(List<TabForm> forms) {
+		this.forms = forms;
+	}
+	public FieldMasterResponseModel(Integer tadId, String tabLabel) {
 		super();
-		this.sno = sno;
-		this.fieldid = fieldid;
-		this.filedlabel = filedlabel;
-		this.tabid = tabid;
-		this.tablabel = tablabel;
-		this.tabname = tabname;
+		this.tadId = tadId;
+		this.tabLabel = tabLabel;
 	}
-
-	public int getSno() {
-		return sno;
+	public FieldMasterResponseModel(Integer tadId, String tabLabel, List<TabForm> forms) {
+		super();
+		this.tadId = tadId;
+		this.tabLabel = tabLabel;
+		this.forms = forms;
 	}
-
-	public void setSno(int sno) {
-		this.sno = sno;
-	}
-
-	public String getFieldid() {
-		return fieldid;
-	}
-
-	public void setFieldid(String fieldid) {
-		this.fieldid = fieldid;
-	}
-
-	public int getTabid() {
-		return tabid;
-	}
-
-	public void setTabid(int tabid) {
-		this.tabid = tabid;
-	}
-
-	public String getFiledlabel() {
-		return filedlabel;
-	}
-
-	public void setFiledlabel(String filedlabel) {
-		this.filedlabel = filedlabel;
-	}
-
-	public String getTablabel() {
-		return tablabel;
-	}
-
-	public void setTablabel(String tablabel) {
-		this.tablabel = tablabel;
-	}
-
-	public String getTabname() {
-		return tabname;
-	}
-
-	public void setTabname(String tabname) {
-		this.tabname = tabname;
-	}
-
+	
 }

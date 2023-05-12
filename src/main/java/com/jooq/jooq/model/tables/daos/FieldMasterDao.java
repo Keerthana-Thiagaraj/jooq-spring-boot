@@ -160,4 +160,32 @@ public class FieldMasterDao extends DAOImpl<FieldMasterRecord, com.jooq.jooq.mod
     public List<com.jooq.jooq.model.tables.pojos.FieldMaster> fetchByStatus(String... values) {
         return fetch(FieldMaster.FIELD_MASTER.STATUS, values);
     }
+
+    /**
+     * Fetch records that have <code>field_type BETWEEN lowerInclusive AND upperInclusive</code>
+     */
+    public List<com.jooq.jooq.model.tables.pojos.FieldMaster> fetchRangeOfFieldType(String lowerInclusive, String upperInclusive) {
+        return fetchRange(FieldMaster.FIELD_MASTER.FIELD_TYPE, lowerInclusive, upperInclusive);
+    }
+
+    /**
+     * Fetch records that have <code>field_type IN (values)</code>
+     */
+    public List<com.jooq.jooq.model.tables.pojos.FieldMaster> fetchByFieldType(String... values) {
+        return fetch(FieldMaster.FIELD_MASTER.FIELD_TYPE, values);
+    }
+
+    /**
+     * Fetch records that have <code>field_value BETWEEN lowerInclusive AND upperInclusive</code>
+     */
+    public List<com.jooq.jooq.model.tables.pojos.FieldMaster> fetchRangeOfFieldValue(String lowerInclusive, String upperInclusive) {
+        return fetchRange(FieldMaster.FIELD_MASTER.FIELD_VALUE, lowerInclusive, upperInclusive);
+    }
+
+    /**
+     * Fetch records that have <code>field_value IN (values)</code>
+     */
+    public List<com.jooq.jooq.model.tables.pojos.FieldMaster> fetchByFieldValue(String... values) {
+        return fetch(FieldMaster.FIELD_MASTER.FIELD_VALUE, values);
+    }
 }

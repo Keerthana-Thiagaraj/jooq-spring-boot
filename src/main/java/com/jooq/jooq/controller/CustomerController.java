@@ -57,10 +57,14 @@ public class CustomerController {
 		return customerService.getTabField();
 	}
 	
+	@GetMapping(value = "/getFiledMasterByType")
+	public List<FieldMasterResponseModel> getFiledMasterByType(String type){
+		return customerService.getFiledMasterByType(type);
+	}
 	
-	@GetMapping(value = "/getFiledMasterByTabId")
-	public List<FieldMasterResponseModel> getFiledMasterByTabId(Integer tabId){
-		return customerService.getFiledMasterByTabId(tabId);
+	@GetMapping(value = "/getCustMaster")
+	public List<CustomerMaster> getCustMaster(String custCode){
+		return customerDao.fetchByCustomerCode(custCode);
 	}
 	
 }

@@ -5,6 +5,7 @@ package com.jooq.jooq.model;
 
 
 import com.jooq.jooq.model.tables.FieldMaster;
+import com.jooq.jooq.model.tables.FieldValidationMaster;
 
 import org.jooq.Index;
 import org.jooq.OrderField;
@@ -22,5 +23,6 @@ public class Indexes {
     // INDEX definitions
     // -------------------------------------------------------------------------
 
+    public static final Index FIELD_VALIDATION_MASTER_FK_FIELD_ID_IDX = Internal.createIndex(DSL.name("FK_FIELD_ID_idx"), FieldValidationMaster.FIELD_VALIDATION_MASTER, new OrderField[] { FieldValidationMaster.FIELD_VALIDATION_MASTER.FIELD_ID }, false);
     public static final Index FIELD_MASTER_FK_TAB_MASTER_IDX = Internal.createIndex(DSL.name("fk_tab_master_idx"), FieldMaster.FIELD_MASTER, new OrderField[] { FieldMaster.FIELD_MASTER.TAB_ID }, false);
 }

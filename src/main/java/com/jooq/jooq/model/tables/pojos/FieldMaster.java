@@ -44,6 +44,8 @@ public class FieldMaster implements Serializable {
     private String  frmr;
     private String  atpy;
     private String  status;
+    private String  fieldType;
+    private String  fieldValue;
 
     public FieldMaster() {}
 
@@ -56,6 +58,8 @@ public class FieldMaster implements Serializable {
         this.frmr = value.frmr;
         this.atpy = value.atpy;
         this.status = value.status;
+        this.fieldType = value.fieldType;
+        this.fieldValue = value.fieldValue;
     }
 
     public FieldMaster(
@@ -66,7 +70,9 @@ public class FieldMaster implements Serializable {
         String  rpmv,
         String  frmr,
         String  atpy,
-        String  status
+        String  status,
+        String  fieldType,
+        String  fieldValue
     ) {
         this.sno = sno;
         this.tabId = tabId;
@@ -76,6 +82,8 @@ public class FieldMaster implements Serializable {
         this.frmr = frmr;
         this.atpy = atpy;
         this.status = status;
+        this.fieldType = fieldType;
+        this.fieldValue = fieldValue;
     }
 
     /**
@@ -214,6 +222,40 @@ public class FieldMaster implements Serializable {
         return this;
     }
 
+    /**
+     * Getter for <code>jooq_demo.Field_master.field_type</code>.
+     */
+    @Column(name = "field_type", length = 45)
+    @Size(max = 45)
+    public String getFieldType() {
+        return this.fieldType;
+    }
+
+    /**
+     * Setter for <code>jooq_demo.Field_master.field_type</code>.
+     */
+    public FieldMaster setFieldType(String fieldType) {
+        this.fieldType = fieldType;
+        return this;
+    }
+
+    /**
+     * Getter for <code>jooq_demo.Field_master.field_value</code>.
+     */
+    @Column(name = "field_value", length = 45)
+    @Size(max = 45)
+    public String getFieldValue() {
+        return this.fieldValue;
+    }
+
+    /**
+     * Setter for <code>jooq_demo.Field_master.field_value</code>.
+     */
+    public FieldMaster setFieldValue(String fieldValue) {
+        this.fieldValue = fieldValue;
+        return this;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj)
@@ -271,6 +313,18 @@ public class FieldMaster implements Serializable {
         }
         else if (!status.equals(other.status))
             return false;
+        if (fieldType == null) {
+            if (other.fieldType != null)
+                return false;
+        }
+        else if (!fieldType.equals(other.fieldType))
+            return false;
+        if (fieldValue == null) {
+            if (other.fieldValue != null)
+                return false;
+        }
+        else if (!fieldValue.equals(other.fieldValue))
+            return false;
         return true;
     }
 
@@ -286,6 +340,8 @@ public class FieldMaster implements Serializable {
         result = prime * result + ((this.frmr == null) ? 0 : this.frmr.hashCode());
         result = prime * result + ((this.atpy == null) ? 0 : this.atpy.hashCode());
         result = prime * result + ((this.status == null) ? 0 : this.status.hashCode());
+        result = prime * result + ((this.fieldType == null) ? 0 : this.fieldType.hashCode());
+        result = prime * result + ((this.fieldValue == null) ? 0 : this.fieldValue.hashCode());
         return result;
     }
 
@@ -301,6 +357,8 @@ public class FieldMaster implements Serializable {
         sb.append(", ").append(frmr);
         sb.append(", ").append(atpy);
         sb.append(", ").append(status);
+        sb.append(", ").append(fieldType);
+        sb.append(", ").append(fieldValue);
 
         sb.append(")");
         return sb.toString();
