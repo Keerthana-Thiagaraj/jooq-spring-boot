@@ -71,7 +71,36 @@ public class CustomerController {
 	@GetMapping(value = "/getCountryMaster")
 	public List<CountryMasterResponseModel> getCountryMaster() {
 		return customerService.getCountryMaster();
-
 	}
+	
+	@GetMapping(value = "/getStateMaster")
+	public List<CountryMasterResponseModel> getStateMaster(String countrycode) {
+		return customerService.getStateMasters(countrycode);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }
