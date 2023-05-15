@@ -4,10 +4,13 @@
 package com.jooq.jooq.model;
 
 
+import com.jooq.jooq.model.tables.CityMaster;
+import com.jooq.jooq.model.tables.CountryMaster;
 import com.jooq.jooq.model.tables.CustomerMaster;
 import com.jooq.jooq.model.tables.FieldMaster;
 import com.jooq.jooq.model.tables.FieldTabMaster;
 import com.jooq.jooq.model.tables.FieldValidationMaster;
+import com.jooq.jooq.model.tables.StateMaster;
 import com.jooq.jooq.model.tables.UserMaster;
 
 import java.util.Arrays;
@@ -32,6 +35,16 @@ public class JooqDemo extends SchemaImpl {
     public static final JooqDemo JOOQ_DEMO = new JooqDemo();
 
     /**
+     * The table <code>jooq_demo.city_master</code>.
+     */
+    public final CityMaster CITY_MASTER = CityMaster.CITY_MASTER;
+
+    /**
+     * The table <code>jooq_demo.country_master</code>.
+     */
+    public final CountryMaster COUNTRY_MASTER = CountryMaster.COUNTRY_MASTER;
+
+    /**
      * The table <code>jooq_demo.customer_master</code>.
      */
     public final CustomerMaster CUSTOMER_MASTER = CustomerMaster.CUSTOMER_MASTER;
@@ -50,6 +63,11 @@ public class JooqDemo extends SchemaImpl {
      * The table <code>jooq_demo.field_validation_master</code>.
      */
     public final FieldValidationMaster FIELD_VALIDATION_MASTER = FieldValidationMaster.FIELD_VALIDATION_MASTER;
+
+    /**
+     * The table <code>jooq_demo.state_master</code>.
+     */
+    public final StateMaster STATE_MASTER = StateMaster.STATE_MASTER;
 
     /**
      * The table <code>jooq_demo.user_master</code>.
@@ -72,10 +90,13 @@ public class JooqDemo extends SchemaImpl {
     @Override
     public final List<Table<?>> getTables() {
         return Arrays.<Table<?>>asList(
+            CityMaster.CITY_MASTER,
+            CountryMaster.COUNTRY_MASTER,
             CustomerMaster.CUSTOMER_MASTER,
             FieldMaster.FIELD_MASTER,
             FieldTabMaster.FIELD_TAB_MASTER,
             FieldValidationMaster.FIELD_VALIDATION_MASTER,
+            StateMaster.STATE_MASTER,
             UserMaster.USER_MASTER);
     }
 }

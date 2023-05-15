@@ -4,10 +4,13 @@
 package com.jooq.jooq.model;
 
 
+import com.jooq.jooq.model.tables.CityMaster;
+import com.jooq.jooq.model.tables.CountryMaster;
 import com.jooq.jooq.model.tables.CustomerMaster;
 import com.jooq.jooq.model.tables.FieldMaster;
 import com.jooq.jooq.model.tables.FieldTabMaster;
 import com.jooq.jooq.model.tables.FieldValidationMaster;
+import com.jooq.jooq.model.tables.StateMaster;
 import com.jooq.jooq.model.tables.UserMaster;
 
 
@@ -16,6 +19,16 @@ import com.jooq.jooq.model.tables.UserMaster;
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Tables {
+
+    /**
+     * The table <code>jooq_demo.city_master</code>.
+     */
+    public static final CityMaster CITY_MASTER = CityMaster.CITY_MASTER;
+
+    /**
+     * The table <code>jooq_demo.country_master</code>.
+     */
+    public static final CountryMaster COUNTRY_MASTER = CountryMaster.COUNTRY_MASTER;
 
     /**
      * The table <code>jooq_demo.customer_master</code>.
@@ -36,6 +49,11 @@ public class Tables {
      * The table <code>jooq_demo.field_validation_master</code>.
      */
     public static final FieldValidationMaster FIELD_VALIDATION_MASTER = FieldValidationMaster.FIELD_VALIDATION_MASTER;
+
+    /**
+     * The table <code>jooq_demo.state_master</code>.
+     */
+    public static final StateMaster STATE_MASTER = StateMaster.STATE_MASTER;
 
     /**
      * The table <code>jooq_demo.user_master</code>.

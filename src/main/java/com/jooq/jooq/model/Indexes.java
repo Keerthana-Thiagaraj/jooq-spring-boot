@@ -4,8 +4,10 @@
 package com.jooq.jooq.model;
 
 
+import com.jooq.jooq.model.tables.CityMaster;
 import com.jooq.jooq.model.tables.FieldMaster;
 import com.jooq.jooq.model.tables.FieldValidationMaster;
+import com.jooq.jooq.model.tables.StateMaster;
 
 import org.jooq.Index;
 import org.jooq.OrderField;
@@ -23,6 +25,8 @@ public class Indexes {
     // INDEX definitions
     // -------------------------------------------------------------------------
 
+    public static final Index STATE_MASTER_FK_COUNTRY_MASTER_IDX = Internal.createIndex(DSL.name("FK_COUNTRY_MASTER_idx"), StateMaster.STATE_MASTER, new OrderField[] { StateMaster.STATE_MASTER.COUNTRY_CODE }, false);
     public static final Index FIELD_VALIDATION_MASTER_FK_FIELD_ID_IDX = Internal.createIndex(DSL.name("FK_FIELD_ID_idx"), FieldValidationMaster.FIELD_VALIDATION_MASTER, new OrderField[] { FieldValidationMaster.FIELD_VALIDATION_MASTER.FIELD_ID }, false);
+    public static final Index CITY_MASTER_FK_STATE_MASTER_IDX = Internal.createIndex(DSL.name("fk_state_master_idx"), CityMaster.CITY_MASTER, new OrderField[] { CityMaster.CITY_MASTER.STATE_ID }, false);
     public static final Index FIELD_MASTER_FK_TAB_MASTER_IDX = Internal.createIndex(DSL.name("fk_tab_master_idx"), FieldMaster.FIELD_MASTER, new OrderField[] { FieldMaster.FIELD_MASTER.TAB_ID }, false);
 }

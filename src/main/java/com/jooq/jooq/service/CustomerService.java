@@ -13,6 +13,7 @@ import com.jooq.jooq.model.Tables;
 import com.jooq.jooq.model.tables.pojos.CustomerMaster;
 import com.jooq.jooq.model.tables.pojos.FieldTabMaster;
 import com.jooq.jooq.model.tables.records.CustomerMasterRecord;
+import com.jooq.jooq.reponse.model.CountryMasterResponseModel;
 import com.jooq.jooq.reponse.model.FieldMasterResponseModel;
 import com.jooq.jooq.reponse.model.TabForm;
 import com.jooq.jooq.reponse.model.TabFormValidator;
@@ -112,7 +113,12 @@ public class CustomerService {
 		return result;
 	}
 	
-	
+	public List<CountryMasterResponseModel> getCountryMaster() {
+		List<CountryMasterResponseModel> result = new ArrayList<CountryMasterResponseModel>();
+		result = dslContext.select(Tables.COUNTRY_MASTER.NAME, Tables.COUNTRY_MASTER.ID)
+				.from(Tables.COUNTRY_MASTER).fetchInto(CountryMasterResponseModel.class);
+		return result;
+	}
 	
 	
 }

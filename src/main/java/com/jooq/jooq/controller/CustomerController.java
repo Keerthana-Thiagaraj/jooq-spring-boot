@@ -16,6 +16,7 @@ import com.jooq.jooq.message.ResponseMessage;
 import com.jooq.jooq.model.tables.daos.CustomerMasterDao;
 import com.jooq.jooq.model.tables.pojos.CustomerMaster;
 import com.jooq.jooq.model.tables.pojos.FieldTabMaster;
+import com.jooq.jooq.reponse.model.CountryMasterResponseModel;
 import com.jooq.jooq.reponse.model.FieldMasterResponseModel;
 import com.jooq.jooq.service.CustomerService;
 
@@ -65,6 +66,12 @@ public class CustomerController {
 	@GetMapping(value = "/getCustMaster")
 	public List<CustomerMaster> getCustMaster(String custCode){
 		return customerDao.fetchByCustomerCode(custCode);
+	}
+	
+	@GetMapping(value = "/getCountryMaster")
+	public List<CountryMasterResponseModel> getCountryMaster() {
+		return customerService.getCountryMaster();
+
 	}
 	
 }
