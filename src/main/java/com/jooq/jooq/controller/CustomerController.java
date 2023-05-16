@@ -78,29 +78,8 @@ public class CustomerController {
 		return customerService.getStateMasters(countrycode);
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	@GetMapping(value = "/getCityMaster")
+	public List<CountryMasterResponseModel> getCityMaster(String statecode) {
+		return customerService.getCityMasters(statecode);
+	}
 }

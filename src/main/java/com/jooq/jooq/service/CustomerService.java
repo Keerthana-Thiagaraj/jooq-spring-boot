@@ -121,22 +121,21 @@ public class CustomerService {
 		return result;
 	}
 
-
 	public List<CountryMasterResponseModel> getStateMasters(String countrycode) {
 		List<CountryMasterResponseModel> result = new ArrayList<CountryMasterResponseModel>();
-		/*result = dslContext
-				.select(Tables.FIELD_TAB_MASTER.TAB_ID,Tables.FIELD_TAB_MASTER.TAB_LABLE)
-				.from(Tables.FIELD_TAB_MASTER).join(Tables.FIELD_MASTER)
-		 		.on(Tables.FIELD_MASTER.TAB_ID.eq(Tables.FIELD_TAB_MASTER.TAB_ID))
-				.where(Tables.FIELD_MASTER.RPMV.eq("Y")).groupBy(Tables.FIELD_MASTER.TAB_ID)
-				.fetchInto(FieldMasterResponseModel.class);*/
-		
 		result = dslContext.select(Tables.STATE_MASTER.NAME,Tables.STATE_MASTER.ID).from(Tables.STATE_MASTER).
 				join(Tables.COUNTRY_MASTER).on(Tables.COUNTRY_MASTER.ID.eq(Tables.STATE_MASTER.COUNTRY_CODE))
 				.where(Tables.STATE_MASTER.COUNTRY_CODE.eq(Integer.valueOf(countrycode))).fetchInto(CountryMasterResponseModel.class);
-		
 		return result;
 	}
-	
+
+	public List<CountryMasterResponseModel> getCityMasters(String statecode) {
+		List<CountryMasterResponseModel> result = new ArrayList<CountryMasterResponseModel>();
+		result = dslContext.select(Tables.CITY_MASTER.CITY, Tables.CITY_MASTER.ID).from(Tables.CITY_MASTER)
+				.join(Tables.STATE_MASTER).on(Tables.STATE_MASTER.ID.eq(Tables.CITY_MASTER.STATE_ID))
+				.where(Tables.STATE_MASTER.ID.eq(Integer.valueOf(statecode)))
+				.fetchInto(CountryMasterResponseModel.class);
+		return result;
+	}
 	
 }
