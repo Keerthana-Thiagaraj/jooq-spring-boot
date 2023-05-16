@@ -20,6 +20,7 @@ import com.jooq.jooq.model.tables.pojos.StateMaster;
 import com.jooq.jooq.model.tables.records.CustomerMasterRecord;
 import com.jooq.jooq.reponse.model.CountryMasterResponseModel;
 import com.jooq.jooq.reponse.model.FieldMasterResponseModel;
+import com.jooq.jooq.reponse.model.FieldOptions;
 import com.jooq.jooq.reponse.model.TabForm;
 import com.jooq.jooq.reponse.model.TabFormValidator;
 
@@ -102,19 +103,29 @@ public class CustomerService {
 	}
 	
 	for (FieldMasterResponseModel tabResult : result) {//loop 1
-		for(TabForm tabForm : tabResult.getForms()) {//loop 2
-		List<TabFormValidator> validators= new ArrayList<TabFormValidator>();
-		 validators = dslContext.select(Tables.FIELD_VALIDATION_MASTER.VALIDATION_TYPE,Tables.FIELD_VALIDATION_MASTER.VALIDATION_FORMAT,Tables.FIELD_VALIDATION_MASTER.VALIDATION_MSG)
+		for (TabForm tabForm : tabResult.getForms()) {// loop 2
+
+			List<TabFormValidator> validators = new ArrayList<TabFormValidator>();
+			validators = dslContext
+					.select(Tables.FIELD_VALIDATION_MASTER.VALIDATION_TYPE,
+							Tables.FIELD_VALIDATION_MASTER.VALIDATION_FORMAT,
+							Tables.FIELD_VALIDATION_MASTER.VALIDATION_MSG)
 					.from(Tables.FIELD_MASTER).join(Tables.FIELD_VALIDATION_MASTER)
 					.on(Tables.FIELD_MASTER.SNO.eq(Tables.FIELD_VALIDATION_MASTER.FIELD_ID))
 					.where(Tables.FIELD_MASTER.TAB_ID.eq(Integer.valueOf(tabResult.getTadId()))
-					.and(Tables.FIELD_MASTER.SNO.eq(Integer.valueOf(tabForm.getsNo()))))
-					.groupBy(Tables.FIELD_MASTER.SNO,Tables.FIELD_VALIDATION_MASTER.FIELD_ID)
+							.and(Tables.FIELD_MASTER.SNO.eq(Integer.valueOf(tabForm.getsNo()))))
+					.groupBy(Tables.FIELD_MASTER.SNO, Tables.FIELD_VALIDATION_MASTER.FIELD_ID)
 					.fetchInto(TabFormValidator.class);
-		 tabForm.setValidations(validators);
+			tabForm.setValidations(validators);
+
+			if (tabForm.getType().equals("select") && tabForm.getName().equals("country")) {
+				List<FieldOptions> options = new ArrayList<FieldOptions>();
+				options = dslContext.select(Tables.COUNTRY_MASTER.ID, Tables.COUNTRY_MASTER.NAME)
+						.from(Tables.COUNTRY_MASTER).fetchInto(FieldOptions.class);
+				tabForm.setOptions(options);
+			}
 		}
 	}
-	
 		return result;
 	}
 	
@@ -146,7 +157,7 @@ public class CustomerService {
 	public Page<StateMaster> findBySearchTerm(String searchTerm, Pageable pageable) {
 		String likeExpression = "%" + searchTerm + "%";
         List<StateMaster> queryResults = dslContext.selectFrom(Tables.STATE_MASTER)
-                .where(Tables.STATE_MASTER.NAME.likeIgnoreCase(likeExpression)).orderBy(Tables.STATE_MASTER.NAME.desc())
+                .where(Tables.STATE_MASTER.NAME.likeIgnoreCase(likeExpression)).orderBy(Tables.STATE_MASTER.ID.asc(),Tables.STATE_MASTER.NAME.desc().nullsFirst())
                 .fetchInto(StateMaster.class);
         return new PageImpl<>(queryResults);
     }

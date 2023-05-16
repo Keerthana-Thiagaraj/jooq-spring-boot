@@ -1,5 +1,6 @@
 package com.jooq.jooq.reponse.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TabForm {
@@ -11,6 +12,8 @@ private Integer tabId;
 private String tabLabel;
 private Integer sNo;
 private List<TabFormValidator> validations;
+private List<FieldOptions> options=new ArrayList<FieldOptions>();
+
 public String getLabel() {
 	return label;
 }
@@ -76,11 +79,32 @@ public TabForm(String label, String name, String value, String type, Integer tab
 	this.sNo=sNo;
 	this.validations = validations;
 }
+
+
+public TabForm(String label, String name, String value, String type, Integer tabId, String tabLabel,
+		Integer sNo,List<TabFormValidator> validations,List<FieldOptions> options) {
+	super();
+	this.label = label;
+	this.name = name;
+	this.value = value;
+	this.type = type;
+	this.tabId = tabId;
+	this.tabLabel = tabLabel;
+	this.sNo=sNo;
+	this.validations = validations;
+	this.options=options;
+}
 public Integer getsNo() {
 	return sNo;
 }
 public void setsNo(Integer sNo) {
 	this.sNo = sNo;
+}
+public List<FieldOptions> getOptions() {
+	return options;
+}
+public void setOptions(List<FieldOptions> options) {
+	this.options = options;
 }
 
 }
