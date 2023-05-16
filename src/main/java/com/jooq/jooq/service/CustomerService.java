@@ -5,14 +5,18 @@ import java.util.List;
 
 import org.jooq.Configuration;
 import org.jooq.DSLContext;
-import org.jooq.TableLike;
 import org.jooq.impl.DSL;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.jooq.jooq.model.Tables;
 import com.jooq.jooq.model.tables.pojos.CustomerMaster;
 import com.jooq.jooq.model.tables.pojos.FieldTabMaster;
+import com.jooq.jooq.model.tables.pojos.StateMaster;
 import com.jooq.jooq.model.tables.records.CustomerMasterRecord;
 import com.jooq.jooq.reponse.model.CountryMasterResponseModel;
 import com.jooq.jooq.reponse.model.FieldMasterResponseModel;
@@ -137,5 +141,14 @@ public class CustomerService {
 				.fetchInto(CountryMasterResponseModel.class);
 		return result;
 	}
-	
+
+	@Transactional(readOnly = true)
+	public Page<StateMaster> findBySearchTerm(String searchTerm, Pageable pageable) {
+		String likeExpression = "%" + searchTerm + "%";
+        List<StateMaster> queryResults = dslContext.selectFrom(Tables.STATE_MASTER)
+                .where(Tables.STATE_MASTER.NAME.likeIgnoreCase(likeExpression)).orderBy(Tables.STATE_MASTER.NAME.desc())
+                .fetchInto(StateMaster.class);
+        return new PageImpl<>(queryResults);
+    }
+ 
 }

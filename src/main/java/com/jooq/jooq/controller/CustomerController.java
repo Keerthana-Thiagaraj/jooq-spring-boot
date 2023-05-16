@@ -3,6 +3,8 @@ package com.jooq.jooq.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -10,12 +12,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.jooq.jooq.message.ResponseMessage;
 import com.jooq.jooq.model.tables.daos.CustomerMasterDao;
 import com.jooq.jooq.model.tables.pojos.CustomerMaster;
 import com.jooq.jooq.model.tables.pojos.FieldTabMaster;
+import com.jooq.jooq.model.tables.pojos.StateMaster;
 import com.jooq.jooq.reponse.model.CountryMasterResponseModel;
 import com.jooq.jooq.reponse.model.FieldMasterResponseModel;
 import com.jooq.jooq.service.CustomerService;
@@ -29,7 +35,7 @@ public class CustomerController {
 
 	@Autowired
 	CustomerMasterDao customerDao;
-	
+		
 	@GetMapping("/getcustomer")
 	public List<CustomerMaster> getCustomer() {
 		return customerService.getCustomers();
@@ -82,4 +88,12 @@ public class CustomerController {
 	public List<CountryMasterResponseModel> getCityMaster(String statecode) {
 		return customerService.getCityMasters(statecode);
 	}
+	
+	
+	@RequestMapping(value = "/search", method = RequestMethod.GET)
+	public Page<StateMaster> findBySearchTerm(@RequestParam("searchTerm") String searchTerm, Pageable pageable) {
+		return customerService.findBySearchTerm(searchTerm, pageable);
+	}
+	 
+	 
 }

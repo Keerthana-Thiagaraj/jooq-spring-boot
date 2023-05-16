@@ -79,6 +79,11 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+			<!--spring for pagination -->
+					<dependency>
+					    <groupId>org.springframework.data</groupId>
+					    <artifactId>spring-data-commons</artifactId>
+				</dependency>
 		
 	</dependencies>
 
@@ -119,13 +124,7 @@
 									<inputSchema>jooq_demo</inputSchema>
 								</database>
 								<generate>
-									 <!--  <pojos>true</pojos>
-									  <pojosEqualsAndHashCode>
-										true
-									  </pojosEqualsAndHashCode>
 									  <javaTimeTypes>true</javaTimeTypes>
-									  <fluentSetters>true</fluentSetters> -->
-									  
 									  <deprecated>false</deprecated>
                         <generatedAnnotation>false</generatedAnnotation>
                         <instanceFields>true</instanceFields>
@@ -142,6 +141,8 @@
                         <globalUDTReferences>true</globalUDTReferences>
                         <daos>true</daos>
                         <relations>true</relations>
+     					<implicitJoinPathsToOne>true</implicitJoinPathsToOne>
+     
 								</generate>
 								<target>
 									<packageName>
